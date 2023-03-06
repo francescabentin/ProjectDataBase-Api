@@ -1,13 +1,37 @@
 import '../styles/App.scss';
+import cover from '../images/cover_2.jpeg';
+import user from '../images/user.jpeg';
+import { useState } from 'react';
 
 function App() {
+
+
+  const [name,setName] = useState ("");
+  // const [slogan, setSlogan] =useState ("");
+
+  const handleName =(ev)=> {
+    const inputValue = ev.target.value;
+    setName(inputValue);
+  }
+
+// const handleInput = (ev) => {
+//   const inputValue=ev.target.value;
+//   const inputName=ev.target.name;
+//   if (inputName === "name") {
+//     setName (inputValue);
+//   }
+//   else if (inputName === "slogan") {
+//     setSlogan(inputValue)
+//   }
+// }
+
   return (<div className="container">
       <header className="header">
         <p className="text">Proyectos Molones</p>
       </header>
       <main className="main">
         <section className="preview">
-          <img className="image" src="./images/cover.jpeg" alt="" />
+          <img className="image" src={cover} alt="" />
 
           <section className="autor">
             <section className="info-project">
@@ -28,7 +52,7 @@ function App() {
             </section>
 
             <section className="info-autor">
-              <img className="image" src="./images/user.jpeg" alt="" />
+              <img className="image" src={user} alt="" />
               <p className="job">Full Stack Developer</p>
               <p className="name">Emmelie Björklund</p>
             </section>
@@ -50,6 +74,8 @@ function App() {
               placeholder="Nombre del proyecto"
               name="name"
               id="name"
+              value= {name}
+              onChange = {handleName}
             />
             <input
               className="input"

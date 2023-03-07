@@ -18,36 +18,34 @@ function App() {
 const handleInput = (ev) => {
   const inputValue=ev.target.value;
   const inputName=ev.target.name;
+  const textValidation = /^[A-Za-zñÑáéíóúÁÉÍÓÚüÜïÏç.,-_\s]*$/;
+  const linkValidation = /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+  console.log(inputValue)
   if (inputName === "name") {
     setName (inputValue);
   }
   else if (inputName === "slogan") {
-    setSlogan(inputValue)
-  }
-    else if (inputName === "repo") {
-    setRepo(inputValue)
-  }
-    else if (inputName === "demo") {
-    setDemo(inputValue)
-  }
-    else if (inputName === "technologies") {
-    setTechnologies(inputValue)
-  }
-   else if (inputName === "desc") {
-    setDesc(inputValue)
-  } 
-    else if (inputName === "autor") {
-    setAutor(inputValue)
-  }  
-  else if (inputName === "job") {
-    setJob(inputValue)
+    setSlogan(inputValue);
+  } else if (inputName === "repo" && linkValidation.test(inputValue)) {
+    setRepo(inputValue);
+  } else if (inputName === "demo" && linkValidation.test(inputValue)) {
+    setDemo(inputValue);
+  } else if (inputName === "technologies") {
+    setTechnologies(inputValue);
+  } else if (inputName === "desc") {
+    setDesc(inputValue);
+  } else if (inputName === "autor" && textValidation.test(inputValue)) {
+    setAutor(inputValue);
+  } else if (inputName === "job" && textValidation.test(inputValue)) {
+    setJob(inputValue);
   }
 
 
 
 }
 
-  return (<div className="container">
+  return (
+    <div className="container">
       <header className="header">
         <p className="text">Proyectos Molones</p>
       </header>
@@ -60,20 +58,22 @@ const handleInput = (ev) => {
               <p className="subtitle">Personal Project Card</p>
               <hr className="line" />
 
-              <h2 className="title">{name || 'Elegant Workspace' }</h2>
-              <p className="slogan">{slogan || 'Diseños Exclusivos'}</p>
-              <p className="desc"> {desc || 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Libero, delectus? Voluptates at hic aliquam porro ad suscipitharum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum!'}
-                
+              <h2 className="title">{name || "Elegant Workspace"}</h2>
+              <p className="slogan">{slogan || "Diseños Exclusivos"}</p>
+              <p className="desc">
+                {" "}
+                {desc ||
+                  "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Libero, delectus? Voluptates at hic aliquam porro ad suscipitharum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum!"}
               </p>
               <section className="technologies">
-                <p className="text"> {technologies || 'React JS, MongoDB'}</p>
+                <p className="text"> {technologies || "React JS, MongoDB"}</p>
               </section>
             </section>
 
             <section className="info-autor">
               <img className="image" src={user} alt="" />
-              <p className="job">{job || 'Full Stack Developer'}</p>
-              <p className="name">{autor || 'Emmelie Björklund'}</p>
+              <p className="job">{job || "Full Stack Developer"}</p>
+              <p className="name">{autor || "Emmelie Björklund"}</p>
             </section>
           </section>
         </section>
@@ -90,11 +90,12 @@ const handleInput = (ev) => {
             <input
               className="input"
               type="text"
-              placeholder="Nombre del proyecto"
+              placeholder="Nombre del proyecto *"
               name="name"
               id="name"
-              value= {name}
-              onChange = {handleInput}
+              value={name}
+              onInput={handleInput}
+              required
             />
             <input
               className="input"
@@ -102,26 +103,31 @@ const handleInput = (ev) => {
               name="slogan"
               id="slogan"
               placeholder="Slogan"
-              value = {slogan}
-              onChange ={handleInput}
+              value={slogan}
+              onChange={handleInput}
+              pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
             <input
               className="input"
               type="text"
               name="repo"
               id="repo"
-              placeholder="Repo"
-              value = {repo}
-              onChange ={handleInput}
+              placeholder="Repo *"
+              value={repo}
+              onChange={handleInput}
+              required
+              pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
             />
             <input
               className="input"
               type="text"
-              placeholder="Demo"
+              placeholder="Demo *"
               name="demo"
               id="demo"
-              value = {demo}
-              onChange ={handleInput}
+              value={demo}
+              onChange={handleInput}
+              required
+              pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
             />
             <input
               className="input"
@@ -129,17 +135,19 @@ const handleInput = (ev) => {
               placeholder="Tecnologías"
               name="technologies"
               id="technologies"
-              value = {technologies}
-              onChange ={handleInput}
+              value={technologies}
+              onChange={handleInput}
+              pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
             <textarea
               className="textarea"
               type="text"
-              placeholder="Descripción"
+              placeholder="Descripción *"
               name="desc"
               id="desc"
-              value = {desc}
-              onChange ={handleInput}
+              value={desc}
+              onChange={handleInput}
+              required
             ></textarea>
           </fieldset>
 
@@ -152,20 +160,24 @@ const handleInput = (ev) => {
             <input
               className="input"
               type="text"
-              placeholder="Nombre"
+              placeholder="Nombre *"
               name="autor"
               id="autor"
-              value = {autor}
-              onChange ={handleInput}
+              value={autor}
+              onChange={handleInput}
+              required
+              pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
             <input
               className="input"
               type="text"
-              placeholder="Trabajo"
+              placeholder="Trabajo *"
               name="job"
               id="job"
-              value = {job}
-              onChange ={handleInput}
+              value={job}
+              onChange={handleInput}
+              required
+              pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
           </fieldset>
 
@@ -181,12 +193,14 @@ const handleInput = (ev) => {
 
           <section className="card">
             <span className=""> La tarjeta ha sido creada: </span>
-            <a href="" className="" target="_blank" rel="noreferrer"> </a>
+            <a href="" className="" target="_blank" rel="noreferrer">
+              {" "}
+            </a>
           </section>
         </section>
       </main>
     </div>
-  )
+  );
 }
 
 export default App;

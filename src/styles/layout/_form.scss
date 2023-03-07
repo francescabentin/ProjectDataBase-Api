@@ -1,0 +1,79 @@
+.main .form {
+    background-color: #302c42;
+    width: 40%;
+}
+
+.main .title {
+    color: #ffffff;
+    text-align: center;
+}
+
+.main .ask-info {
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.main .ask-info .subtitle {
+    padding-bottom: 10px;
+}
+
+.main .ask-info .line {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 255, 255, 0));
+}
+
+.main .project,
+.main .autor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+}
+
+.main .input,
+.textarea {
+    background-color: #302c42;
+    border-color: white;
+    border-radius: 40px;
+    height: 42.72px;
+    color: #ffffff;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.main .input::placeholder,
+.textarea::placeholder {
+    color: #ffffff;
+}
+
+.main .textarea {
+    height: 110px;
+}
+
+.main .buttons-img {
+    text-align: center;
+}
+
+.main .btn,
+.main .btn-large {
+    width: 160px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    border: none;
+
+    height: 43px;
+    background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
+    border-radius: 40px;
+}
+
+.main .btn-large {
+    width: 200px;
+    border: solid 2px white;
+}

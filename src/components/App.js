@@ -47,6 +47,7 @@ const handleInput = (ev) => {
   return (
     <div className="container">
       <header className="header">
+        <i className="fa-solid fa-laptop-code"></i>
         <p className="text">Proyectos Molones</p>
       </header>
       <main className="main">

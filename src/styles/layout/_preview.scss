@@ -1,93 +1,198 @@
-.main .preview {
-    width: 60%;
-}
 
-.main .preview {
-    padding: 20px;
+
+@media (min-width: 768px) {
+  .main .preview {
+    width: 60%;
+  }
 }
 
 .main .preview .image {
+  object-fit: cover;
+  width: 100%;
+  height: 80%;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 768px) {
+  .main .preview .image {
     object-fit: cover;
     width: 100%;
-    height: 80%;
+    height: 70%;
+  }
 }
 
 .main .preview .autor {
-    background-color: white;
-    color: #3e3e3e;
-    width: 90%;
-    height: 50%;
-    transform: translateY(-100px);
-    margin: auto;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 40px;
-    padding: 30px;
-    overflow-y: scroll;
+  background-color: white;
+  color: #3e3e3e;
+  width: 85%;
+  height: 50%;
+  transform: translateY(-40px);
+  margin: auto;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2rem;
+  padding: 1.5rem;
+  overflow-y: scroll;
 }
 
-.technologies {
-    background-color: lightgray;
-    border-radius: 20px;
-    font-size: 14px;
-    padding: 10px;
-    width: 70%;
+@media (min-width: 768px) {
+  .main .preview .autor {
+    width: 90%;
+    height: 25%;
+    transform: translateY(-50px);
+  }
 }
 
 .info-autor {
-    width: 40%;
-    text-align: center;
+  width: 40%;
+  text-align: center;
 }
 
-.info-autor .image {
+.info-autor .image-card {
+  border-radius: 50%;
+  width: 90%;
+}
+
+@media (min-width: 768px) {
+  .info-autor .image-card {
     border-radius: 50%;
-    width: 80px;
-    height: 110px;
+    width: 90%;
+  }
 }
 
 .info-autor .job {
-    font-weight: bold;
-    color: black;
-    font-size: 14px;
+  font-family: "Catamaran", sans-serif;
+  color: #909090;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .info-autor .job {
+    font-size: 1.4rem;
+  }
 }
 
 .info-autor .name {
-    font-size: 16px;
+  font-family: "Catamaran", sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .info-autor .name {
+    font-size: 1.6rem;
+  }
 }
 
 .info-project {
-    width: 60%;
+  width: 60%;
+}
+
+.info-project-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .info-project .subtitle {
-    font-size: 14px;
+  background-color: white;
+  font-size: 0.8rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  z-index: 1;
+  width: 65%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .info-project .subtitle {
+    font-size: 1.1rem;
     text-align: center;
+  }
 }
 
 .info-project .title {
-    font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .info-project .title {
+    font-size: 2rem;
     color: black;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+  }
 }
 
 .info-project .desc {
-    font-size: 12px;
-    margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .info-project .desc {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .info-project .slogan {
-    font-size: 14px;
-    margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #575757;
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .info-project .slogan {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .info-project .line {
-    width: 100%;
-    border: 0;
-    height: 1px;
+  width: 100%;
+  border: 0;
+  height: 0.1rem;
+  transform: translateY(-7px);
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(1, 1, 1, 0.75),
+    rgba(255, 255, 255, 0)
+  );
+}
 
-    background-image: linear-gradient(to right,
-            rgba(255, 255, 255, 0),
-            rgba(1, 1, 1, 0.75),
-            rgba(255, 255, 255, 0));
+@media (min-width: 768px) {
+  .info-project .line {
+  transform: translateY(-9px);
+  }
+}
+
+
+.technologies {
+  font-family: "Catamaran", sans-serif;
+  background-color: lightgray;
+  border-radius: 2rem;
+  font-size: 1rem;
+  padding: 1rem;
+  width: 70%;
+}
+
+@media (min-width: 768px) {
+  .technologies {
+    background-color: lightgray;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    padding: 1rem;
+    width: 70%;
+  }
 }

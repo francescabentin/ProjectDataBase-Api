@@ -3,8 +3,16 @@
 
 .main {
     display: flex;
-    padding-top: 50px;
-    height: 80vh;
+    flex-direction: column;
+    padding: 30px 0 30px 0;
+    gap: 30px;
 }
 
+@media (min-width:768px) {
+    .main{
+        display: flex;
+        flex-direction: row;
+    padding-top: 50px;
 
+    }
+}

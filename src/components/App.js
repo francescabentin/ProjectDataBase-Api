@@ -1,6 +1,7 @@
 import '../styles/App.scss';
 import cover from '../images/cover_2.jpeg';
 import user from '../images/user.jpeg';
+import logo from "../images/logo-adalab.png";
 import { useState } from 'react';
 
 function App() {
@@ -47,8 +48,11 @@ const handleInput = (ev) => {
   return (
     <div className="container">
       <header className="header">
-        <i className="fa-solid fa-laptop-code"></i>
-        <p className="text">Proyectos Molones</p>
+        <div className="project-name">
+          <i className="fa-solid fa-laptop-code"></i>
+          <p className="text">Proyectos Molones</p>
+        </div>
+        <img className="logo" src={logo} title="Adalab" alt="Logo de Adalab" />
       </header>
       <main className="main">
         <section className="preview">
@@ -56,23 +60,28 @@ const handleInput = (ev) => {
 
           <section className="autor">
             <section className="info-project">
-              <p className="subtitle">Personal Project Card</p>
-              <hr className="line" />
+              <div className="info-project-intro">
+                <p className="subtitle">Personal Project Card</p>
+                <hr className="line" />
+              </div>
 
               <h2 className="title">{name || "Elegant Workspace"}</h2>
               <p className="slogan">{slogan || "Diseños Exclusivos"}</p>
               <p className="desc">
                 {" "}
                 {desc ||
-                  "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Libero, delectus? Voluptates at hic aliquam porro ad suscipitharum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum!"}
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus commodo tellus lectus lobortis."}
               </p>
               <section className="technologies">
-                <p className="text"> {technologies || "React JS, MongoDB"}</p>
+                <p className="text">
+                  {" "}
+                  {technologies || "React - JS - MongoDB"}
+                </p>
               </section>
             </section>
 
             <section className="info-autor">
-              <img className="image" src={user} alt="" />
+              <img className="image-card" src={user} alt="" />
               <p className="job">{job || "Full Stack Developer"}</p>
               <p className="name">{autor || "Emmelie Björklund"}</p>
             </section>
@@ -108,28 +117,30 @@ const handleInput = (ev) => {
               onChange={handleInput}
               pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
-            <input
-              className="input"
-              type="text"
-              name="repo"
-              id="repo"
-              placeholder="Repo *"
-              value={repo}
-              onChange={handleInput}
-              required
-              pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
-            />
-            <input
-              className="input"
-              type="text"
-              placeholder="Demo *"
-              name="demo"
-              id="demo"
-              value={demo}
-              onChange={handleInput}
-              required
-              pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
-            />
+            <div className="project-links">
+              <input
+                className="input"
+                type="text"
+                name="repo"
+                id="repo"
+                placeholder="Repo *"
+                value={repo}
+                onChange={handleInput}
+                required
+                pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
+              />
+              <input
+                className="input"
+                type="text"
+                placeholder="Demo *"
+                name="demo"
+                id="demo"
+                value={demo}
+                onChange={handleInput}
+                required
+                pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
+              />
+            </div>
             <input
               className="input"
               type="text"
@@ -149,6 +160,7 @@ const handleInput = (ev) => {
               value={desc}
               onChange={handleInput}
               required
+              maxlength="8"
             ></textarea>
           </fieldset>
 

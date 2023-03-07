@@ -34,6 +34,12 @@
     padding: 20px;
 }
 
+@media (min-width: 1024px) {
+    .card {
+    font-size: 2rem;
+}
+}
+
 .hidden {
     display: none;
 }

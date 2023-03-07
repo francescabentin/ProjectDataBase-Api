@@ -11,11 +11,24 @@
 }
 }
 
+@media (min-width: 1024px) {
+.main .form {
+    height: 75vh;
+    width: 40%;
+}
+}
+
 .main .title {
     font-size: 3.5rem;
     font-weight: bold;
     color: #ffffff;
     text-align: center;
+}
+
+@media (min-width: 1024px) {
+.main .title {
+    font-size: 4.5rem;
+}
 }
 
 .main .ask-info {
@@ -27,6 +40,12 @@
 .main .ask-info .subtitle {
     font-size: 1.5rem;
     padding-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+.main .ask-info .subtitle  {
+    font-size: 2.3rem;
+}
 }
 
 .main .ask-info .line {
@@ -84,12 +103,29 @@ gap: 1rem;
     color: #D4D3D8;
 }
 }
+
+@media (min-width: 1024px) {
+.main .input::placeholder,
+.textarea::placeholder {
+    font-size: 1.8rem;
+    color: #D4D3D8;
+}
+}
+
 .main .textarea {
     height: 11rem;
 }
 
 .main .buttons-img {
     text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .main .buttons-img {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
 }
 
 .main .btn,
@@ -99,10 +135,18 @@ gap: 1rem;
     color: white;
     text-align: center;
     border: none;
-
     height: 4.3rem;
     background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
     border-radius: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .main .btn,
+.main .btn-large {
+    width: 20rem;
+    margin-top: 1.4rem;
+    font-size: 1.7rem;
+}
 }
 
 .main .btn-large {

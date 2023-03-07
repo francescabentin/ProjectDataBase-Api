@@ -1,6 +1,10 @@
-
-
 @media (min-width: 768px) {
+  .main .preview {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1024px) {
   .main .preview {
     width: 60%;
   }
@@ -21,6 +25,12 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .main .preview .image {
+    height: 100%;
+  }
+}
+
 .main .preview .autor {
   background-color: white;
   color: #3e3e3e;
@@ -33,7 +43,7 @@
   flex-direction: row-reverse;
   gap: 2rem;
   padding: 1.5rem;
-  overflow-y: scroll;
+ 
 }
 
 @media (min-width: 768px) {
@@ -41,6 +51,17 @@
     width: 90%;
     height: 25%;
     transform: translateY(-50px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .main .preview .autor {
+    height: 40%;
+    width: 70%;
+    transform: translateY(-200px);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
   }
 }
 
@@ -61,6 +82,12 @@
   }
 }
 
+@media (min-width: 1024px) {
+.info-autor .image-card {
+  width: 50%;
+}
+}
+
 .info-autor .job {
   font-family: "Catamaran", sans-serif;
   color: #909090;
@@ -73,6 +100,12 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .info-autor .job {
+    font-size: 1.8rem;
+  }
+}
+
 .info-autor .name {
   font-family: "Catamaran", sans-serif;
   font-size: 1.4rem;
@@ -82,6 +115,12 @@
 @media (min-width: 768px) {
   .info-autor .name {
     font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .info-autor .name {
+    font-size: 2.2rem;
   }
 }
 
@@ -114,6 +153,13 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .info-project .subtitle {
+    font-size: 1.5rem;
+    width: 35%;
+  }
+}
+
 .info-project .title {
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
@@ -127,6 +173,12 @@
     font-size: 2rem;
     color: black;
     margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .info-project .title {
+    font-size: 2.4rem;
   }
 }
 
@@ -144,6 +196,13 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .info-project .desc {
+    font-size: 1.6rem;
+
+  }
+}
+
 .info-project .slogan {
   font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
@@ -155,6 +214,11 @@
   .info-project .slogan {
     font-size: 1.4rem;
     margin-bottom: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .info-project .slogan {
+    font-size: 1.8rem;
   }
 }
 
@@ -189,10 +253,12 @@
 
 @media (min-width: 768px) {
   .technologies {
-    background-color: lightgray;
-    border-radius: 2rem;
     font-size: 1.4rem;
-    padding: 1rem;
-    width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .technologies {
+    font-size: 1.8rem;
   }
 }

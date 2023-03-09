@@ -78,6 +78,8 @@ const handleInput = (ev) => {
                   {" "}
                   {data.technologies || "React - JS - MongoDB"}
                 </p>
+              <i className='fa-solid fa-globe info--project__technologies-icon1'></i>
+              <i className='fa-brands fa-github info--project__technologies-icon1'></i>
               </section>
             </section>
 

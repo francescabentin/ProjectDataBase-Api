@@ -244,11 +244,18 @@
 
 .technologies {
   font-family: "Catamaran", sans-serif;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
   background-color: lightgray;
   border-radius: 2rem;
   font-size: 1rem;
   padding: 1rem;
-  width: 70%;
+  
+}
+.fa-solid {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @media (min-width: 768px) {

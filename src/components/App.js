@@ -6,16 +6,17 @@ import { useState } from 'react';
 
 function App() {
 
-
-  const [name,setName] = useState ("");
-  const [slogan, setSlogan] =useState ("");
-  const [repo, setRepo] =useState ("");
-  const [demo, setDemo] =useState ("");
-  const [technologies, setTechnologies] =useState ("");
-  const [desc, setDesc] =useState ("");
-  const [autor, setAutor] =useState ("");
-  const [job, setJob] =useState ("");
-
+const [data, setData] = useState ({
+  name:'',
+  slogan:'',
+  repo:'',
+  demo: '',
+  technologies:'',
+  desc:'',
+  autor:'',
+  job:'',
+});
+  
 const handleInput = (ev) => {
   const inputValue=ev.target.value;
   const inputName=ev.target.name;
@@ -23,22 +24,22 @@ const handleInput = (ev) => {
   const linkValidation = /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
   console.log(inputValue)
   if (inputName === "name") {
-    setName (inputValue);
+    setData ({...data,name:inputValue});
   }
   else if (inputName === "slogan") {
-    setSlogan(inputValue);
+    setData({...data,slogan:inputValue});
   } else if (inputName === "repo" && linkValidation.test(inputValue)) {
-    setRepo(inputValue);
+    setData({...data,repo:inputValue});
   } else if (inputName === "demo" && linkValidation.test(inputValue)) {
-    setDemo(inputValue);
+    setData({...data,demo:inputValue});
   } else if (inputName === "technologies") {
-    setTechnologies(inputValue);
+    setData({...data,technologies:inputValue});
   } else if (inputName === "desc") {
-    setDesc(inputValue);
+    setData({...data,desc:inputValue});
   } else if (inputName === "autor" && textValidation.test(inputValue)) {
-    setAutor(inputValue);
+    setData({...data,autor:inputValue});
   } else if (inputName === "job" && textValidation.test(inputValue)) {
-    setJob(inputValue);
+   setData({...data,job:inputValue});
   }
 
 
@@ -65,25 +66,25 @@ const handleInput = (ev) => {
                 <hr className="line" />
               </div>
 
-              <h2 className="title">{name || "Elegant Workspace"}</h2>
-              <p className="slogan">{slogan || "Diseños Exclusivos"}</p>
+              <h2 className="title">{data.name || "Elegant Workspace"}</h2>
+              <p className="slogan">{data.slogan || "Diseños Exclusivos"}</p>
               <p className="desc">
                 {" "}
-                {desc ||
+                {data.desc ||
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus commodo tellus lectus lobortis."}
               </p>
               <section className="technologies">
                 <p className="text">
                   {" "}
-                  {technologies || "React - JS - MongoDB"}
+                  {data.technologies || "React - JS - MongoDB"}
                 </p>
               </section>
             </section>
 
             <section className="info-autor">
               <img className="image-card" src={user} alt="" />
-              <p className="job">{job || "Full Stack Developer"}</p>
-              <p className="name">{autor || "Emmelie Björklund"}</p>
+              <p className="job">{data.job || "Full Stack Developer"}</p>
+              <p className="name">{data.autor || "Emmelie Björklund"}</p>
             </section>
           </section>
         </section>
@@ -103,7 +104,7 @@ const handleInput = (ev) => {
               placeholder="Nombre del proyecto *"
               name="name"
               id="name"
-              value={name}
+              value={data.name}
               onInput={handleInput}
               required
             />
@@ -113,7 +114,7 @@ const handleInput = (ev) => {
               name="slogan"
               id="slogan"
               placeholder="Slogan"
-              value={slogan}
+              value={data.slogan}
               onChange={handleInput}
               pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
@@ -124,7 +125,7 @@ const handleInput = (ev) => {
                 name="repo"
                 id="repo"
                 placeholder="Repo *"
-                value={repo}
+                value={data.repo}
                 onChange={handleInput}
                 required
                 pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
@@ -135,7 +136,7 @@ const handleInput = (ev) => {
                 placeholder="Demo *"
                 name="demo"
                 id="demo"
-                value={demo}
+                value={data.demo}
                 onChange={handleInput}
                 required
                 pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
@@ -147,7 +148,7 @@ const handleInput = (ev) => {
               placeholder="Tecnologías"
               name="technologies"
               id="technologies"
-              value={technologies}
+              value={data.technologies}
               onChange={handleInput}
               pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
@@ -157,10 +158,10 @@ const handleInput = (ev) => {
               placeholder="Descripción *"
               name="desc"
               id="desc"
-              value={desc}
+              value={data.desc}
               onChange={handleInput}
               required
-              maxlength="8"
+             
             ></textarea>
           </fieldset>
 
@@ -176,7 +177,7 @@ const handleInput = (ev) => {
               placeholder="Nombre *"
               name="autor"
               id="autor"
-              value={autor}
+              value={data.autor}
               onChange={handleInput}
               required
               pattern="/^[A - ZÁ - üñÑ]+$/i"
@@ -187,7 +188,7 @@ const handleInput = (ev) => {
               placeholder="Trabajo *"
               name="job"
               id="job"
-              value={job}
+              value={data.job}
               onChange={handleInput}
               required
               pattern="/^[A - ZÁ - üñÑ]+$/i"
@@ -199,7 +200,7 @@ const handleInput = (ev) => {
             <button className="btn">Subir foto de autora</button>
           </section>
           <section className="buttons-img">
-            <button className="btn-large" onClick="{handleClickCreateCard}">
+           <button className="btn-large"  onClick={'handleClickCreateCard'}>
               Crear Tarjeta
             </button>
           </section>

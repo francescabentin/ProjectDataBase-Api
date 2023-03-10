@@ -3,9 +3,10 @@ import cover from '../images/cover_2.jpeg';
 import user from '../images/user.jpeg';
 import logo from "../images/logo-adalab.png";
 import { useState } from 'react';
+import dataApi from '../services/Api.js';
 
 function App() {
-
+const [url, setUrl]= useState ('');
 const [data, setData] = useState ({
   name:'',
   slogan:'',
@@ -41,9 +42,16 @@ const handleInput = (ev) => {
   } else if (inputName === "job" && textValidation.test(inputValue)) {
    setData({...data,job:inputValue});
   }
+}
 
-
-
+const handleClickCreateCard = (ev) => {
+  ev.preventDefault();
+  console.log(data);
+  dataApi(data)
+  .then(info => {
+        console.log (info);
+        setUrl(info.url);
+  })
 }
 
   return (
@@ -202,7 +210,7 @@ const handleInput = (ev) => {
             <button className="btn">Subir foto de autora</button>
           </section>
           <section className="buttons-img">
-           <button className="btn-large"  onClick={'handleClickCreateCard'}>
+           <button className="btn-large"  onClick={handleClickCreateCard}>
               Crear Tarjeta
             </button>
           </section>
@@ -210,7 +218,7 @@ const handleInput = (ev) => {
           <section className="card">
             <span className=""> La tarjeta ha sido creada: </span>
             <a href="" className="" target="_blank" rel="noreferrer">
-              {" "}
+              {url}
             </a>
           </section>
         </section>

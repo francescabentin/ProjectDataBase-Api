@@ -16,6 +16,8 @@ const [data, setData] = useState ({
   desc:'',
   autor:'',
   job:'',
+  image: 'https://via.placeholder.com/140x130',
+  photo: 'https://via.placeholder.com/140x130',
 });
   
 const handleInput = (ev) => {
@@ -29,9 +31,9 @@ const handleInput = (ev) => {
   }
   else if (inputName === "slogan") {
     setData({...data,slogan:inputValue});
-  } else if (inputName === "repo" && linkValidation.test(inputValue)) {
+  } else if (inputName === "repo" && textValidation.test(inputValue)) {
     setData({...data,repo:inputValue});
-  } else if (inputName === "demo" && linkValidation.test(inputValue)) {
+  } else if (inputName === "demo" && textValidation.test(inputValue)) {
     setData({...data,demo:inputValue});
   } else if (inputName === "technologies") {
     setData({...data,technologies:inputValue});

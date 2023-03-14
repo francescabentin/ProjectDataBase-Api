@@ -6,7 +6,7 @@ import { useState } from 'react';
 import dataApi from '../services/Api.js';
 
 function App() {
-const [url, setUrl]= useState ('');
+  const [url, setUrl] = useState('');
 const [data, setData] = useState ({
   name:'',
   slogan:'',
@@ -52,7 +52,7 @@ const handleClickCreateCard = (ev) => {
   dataApi(data)
   .then(info => {
         console.log (info);
-        setUrl(info.url);
+    setUrl(info.cardURL);
   })
 }
 
@@ -221,7 +221,7 @@ const handleClickCreateCard = (ev) => {
           </section>
 
           <section className="card">
-            <span className=""> La tarjeta ha sido creada: </span>
+            <span className="linkCard"> {`La tarjeta ha sido creada: ${url}`}</span>
             <a href="" className="" target="_blank" rel="noreferrer">
               {url}
             </a>

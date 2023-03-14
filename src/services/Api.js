@@ -1,7 +1,7 @@
 
 
 const dataApi = (data) => {
-    fetch ("https://dev.adalab.es/api/projectCard",
+    return (fetch("https://dev.adalab.es/api/projectCard",
     {
         method: "POST",
         body: JSON.stringify(data),
@@ -11,6 +11,7 @@ const dataApi = (data) => {
         console.log(data);
         return data;
     })
+    )
 }
 
 export default dataApi; 

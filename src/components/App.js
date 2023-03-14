@@ -68,7 +68,7 @@ const handleClickCreateCard = (ev) => {
       <main className="main">
         {/* component preview */}
         <section className="preview">
-          { /* component image*/}
+          {/* component image*/}
           <img className="image" src={cover} alt="" />
           <section className="autor">
             {/*inicio component card*/}
@@ -90,8 +90,8 @@ const handleClickCreateCard = (ev) => {
                   {" "}
                   {data.technologies || "React - JS - MongoDB"}
                 </p>
-              <i className='fa-solid fa-globe info--project__technologies-icon1'></i>
-              <i className='fa-brands fa-github info--project__technologies-icon1'></i>
+                <i className="fa-solid fa-globe info--project__technologies-icon1"></i>
+                <i className="fa-brands fa-github info--project__technologies-icon1"></i>
               </section>
             </section>
 
@@ -103,7 +103,7 @@ const handleClickCreateCard = (ev) => {
           </section>
           {/*fin component card*/}
         </section>
-        {/*inicio component form*/}         
+        {/*inicio component form*/}
         <section className="form">
           <h2 className="title">Información</h2>
 
@@ -113,42 +113,54 @@ const handleClickCreateCard = (ev) => {
           </section>
 
           <fieldset className="project">
+            <label htmlFor="name" className="label">
+              Nombre del proyecto*
+            </label>
             <input
               className="input"
               type="text"
-              placeholder="Nombre del proyecto *"
+              placeholder="Elegant Workspace"
               name="name"
               id="name"
               value={data.name}
               onInput={handleInput}
               required
             />
+            <label htmlFor="slogan" className="label">
+              Slogan*
+            </label>
             <input
               className="input"
               type="text"
               name="slogan"
               id="slogan"
-              placeholder="Slogan"
+              placeholder="Diseños Exclusivos"
               value={data.slogan}
               onChange={handleInput}
               pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
             <div className="project-links">
+              <label htmlFor="repo" className="label">
+                Repositorio*
+              </label>
               <input
                 className="input"
                 type="text"
                 name="repo"
                 id="repo"
-                placeholder="Repo *"
+                placeholder="https://github.com/Adalab/proyectos-molones"
                 value={data.repo}
                 onChange={handleInput}
                 required
                 pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
               />
+              <label htmlFor="demo" className="label">
+                Demo link*
+              </label>
               <input
                 className="input"
                 type="text"
-                placeholder="Demo *"
+                placeholder="https://proyectosmolones.com/"
                 name="demo"
                 id="demo"
                 value={data.demo}
@@ -157,26 +169,31 @@ const handleClickCreateCard = (ev) => {
                 pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
               />
             </div>
+            <label htmlFor="technologies" className="label">
+              Tecnologías*
+            </label>
             <input
               className="input"
               type="text"
-              placeholder="Tecnologías"
+              placeholder="HTML5 - CSS3 - JAVASCRIPT"
               name="technologies"
               id="technologies"
               value={data.technologies}
               onChange={handleInput}
               pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
+            <label htmlFor="desc" className="label">
+              Descripción*
+            </label>
             <textarea
               className="textarea"
               type="text"
-              placeholder="Descripción *"
+              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus commodo tellus lectus lobortis."
               name="desc"
               id="desc"
               value={data.desc}
               onChange={handleInput}
               required
-             
             ></textarea>
           </fieldset>
 
@@ -186,10 +203,13 @@ const handleClickCreateCard = (ev) => {
           </section>
 
           <fieldset className="autor">
+            <label htmlFor="autor" className="label">
+              Nombre del autor*
+            </label>
             <input
               className="input"
               type="text"
-              placeholder="Nombre *"
+              placeholder="Emmelie Björklund*"
               name="autor"
               id="autor"
               value={data.autor}
@@ -197,10 +217,13 @@ const handleClickCreateCard = (ev) => {
               required
               pattern="/^[A - ZÁ - üñÑ]+$/i"
             />
+            <label htmlFor="job" className="label">
+              Puesto de trabajo*
+            </label>
             <input
               className="input"
               type="text"
-              placeholder="Trabajo *"
+              placeholder="Full Stack Developer"
               name="job"
               id="job"
               value={data.job}
@@ -215,18 +238,21 @@ const handleClickCreateCard = (ev) => {
             <button className="btn">Subir foto de autora</button>
           </section>
           <section className="buttons-img">
-           <button className="btn-large"  onClick={handleClickCreateCard}>
+            <button className="btn-large" onClick={handleClickCreateCard}>
               Crear Tarjeta
             </button>
           </section>
 
           <section className="card">
-            <span className="linkCard"> {`La tarjeta ha sido creada: ${url}`}</span>
+            <span className="linkCard">
+              {" "}
+              {`La tarjeta ha sido creada: ${url}`}
+            </span>
             <a href="" className="" target="_blank" rel="noreferrer">
               {url}
             </a>
           </section>
-          {/*fin component form*/} 
+          {/*fin component form*/}
         </section>
       </main>
     </div>

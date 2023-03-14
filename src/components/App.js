@@ -19,6 +19,8 @@ const [data, setData] = useState ({
   image: 'https://via.placeholder.com/140x130',
   photo: 'https://via.placeholder.com/140x130',
 });
+  const [isCard, setIsCard] = useState(false);
+  const [isError, setIsError] = useState(false);
 
 const handleInput = (ev) => {
   const inputValue=ev.target.value;
@@ -53,6 +55,12 @@ const handleClickCreateCard = (ev) => {
   .then(info => {
         console.log (info);
     setUrl(info.cardURL);
+    setIsCard(true);
+    if (info.success) {
+      setIsError(true);
+    } else {
+      setIsError(false);
+    }
   })
 }
 
@@ -215,7 +223,7 @@ const handleClickCreateCard = (ev) => {
           </section>
 
           <section className="card">
-            <span className="linkCard"> {`La tarjeta ha sido creada: ${url}`}</span>
+            <span className={isCard ? 'linkCard' : 'hidden'}> {isError ? `La tarjeta ha sido creada: ${url}` : 'error'}</span>
             <a href="" className="" target="_blank" rel="noreferrer">
               {url}
             </a>

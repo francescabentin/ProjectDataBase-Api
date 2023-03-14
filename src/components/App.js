@@ -1,7 +1,7 @@
 import '../styles/App.scss';
 import cover from '../images/cover_2.jpeg';
 import user from '../images/user.jpeg';
-import logo from "../images/logo-adalab.png";
+import Header from '../components/Header';
 import { useState } from 'react';
 import dataApi from '../services/Api.js';
 
@@ -58,13 +58,7 @@ const handleClickCreateCard = (ev) => {
 
   return (
     <div className="container">
-      <header className="header">
-        <div className="project-name">
-          <i className="fa-solid fa-laptop-code"></i>
-          <p className="text">Proyectos Molones</p>
-        </div>
-        <img className="logo" src={logo} title="Adalab" alt="Logo de Adalab" />
-      </header>
+      <Header />
       <main className="main">
         {/* component preview */}
         <section className="preview">

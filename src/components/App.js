@@ -19,7 +19,7 @@ const [data, setData] = useState ({
   image: 'https://via.placeholder.com/140x130',
   photo: 'https://via.placeholder.com/140x130',
 });
-  
+
 const handleInput = (ev) => {
   const inputValue=ev.target.value;
   const inputName=ev.target.name;
@@ -66,10 +66,12 @@ const handleClickCreateCard = (ev) => {
         <img className="logo" src={logo} title="Adalab" alt="Logo de Adalab" />
       </header>
       <main className="main">
+        {/* component preview */}
         <section className="preview">
+          { /* component image*/}
           <img className="image" src={cover} alt="" />
-
           <section className="autor">
+            {/*inicio component card*/}
             <section className="info-project">
               <div className="info-project-intro">
                 <p className="subtitle">Personal Project Card</p>
@@ -99,8 +101,9 @@ const handleClickCreateCard = (ev) => {
               <p className="name">{data.autor || "Emmelie Björklund"}</p>
             </section>
           </section>
+          {/*fin component card*/}
         </section>
-
+        {/*inicio component form*/}         
         <section className="form">
           <h2 className="title">Información</h2>
 
@@ -223,6 +226,7 @@ const handleClickCreateCard = (ev) => {
               {url}
             </a>
           </section>
+          {/*fin component form*/} 
         </section>
       </main>
     </div>

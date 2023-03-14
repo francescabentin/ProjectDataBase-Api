@@ -1,6 +1,4 @@
-
-
-function Form (data, handleInput, handleClickCreateCard, url) {
+const Form = (data, handleInput, handleClickCreateCard, url) => {
     return   <section className="form">
           <h2 className="title">Información</h2>
 
@@ -127,3 +125,16 @@ function Form (data, handleInput, handleClickCreateCard, url) {
 }
 
 export default Form;
+
+
+
+// if (!data.linkedin.includes ('https://www.')) {
+//     previewLinkedin.href = `https://www.${data.linkedin}`;
+//   } else {
+//     previewLinkedin.href = `${data.linkedin}`;
+//   }
+//   if (!data.github.includes ('https://github.com/')) {
+//     previewGithub.href = `https://github.com/${data.github}`;
+//   } else {
+//     previewGithub.href = `${data.github}`;
+//   }

@@ -5,6 +5,11 @@ import logo from "../images/logo-adalab.png";
 import { useState } from 'react';
 import dataApi from '../services/Api.js';
 
+//importo lo componentes
+import ImgCard from '../components/Preview/ImgCard';
+import Card from '../components/Preview/Card';
+
+
 function App() {
 const [url, setUrl]= useState ('');
 const [data, setData] = useState ({
@@ -69,40 +74,20 @@ const handleClickCreateCard = (ev) => {
         {/* component preview */}
         <section className="preview">
           { /* component image*/}
-          <img className="image" src={cover} alt="" />
+          <ImgCard
+          cover={cover}
+          />
+         </section>
+          {/*inicio component card* selecciono <section className="autor"> porque el componente me pide un padre para el chiquillo  */} 
+
           <section className="autor">
-            {/*inicio component card*/}
-            <section className="info-project">
-              <div className="info-project-intro">
-                <p className="subtitle">Personal Project Card</p>
-                <hr className="line" />
-              </div>
-
-              <h2 className="title">{data.name || "Elegant Workspace"}</h2>
-              <p className="slogan">{data.slogan || "Diseños Exclusivos"}</p>
-              <p className="desc">
-                {" "}
-                {data.desc ||
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus commodo tellus lectus lobortis."}
-              </p>
-              <section className="technologies">
-                <p className="text">
-                  {" "}
-                  {data.technologies || "React - JS - MongoDB"}
-                </p>
-              <i className='fa-solid fa-globe info--project__technologies-icon1'></i>
-              <i className='fa-brands fa-github info--project__technologies-icon1'></i>
-              </section>
-            </section>
-
-            <section className="info-autor">
-              <img className="image-card" src={user} alt="" />
-              <p className="job">{data.job || "Full Stack Developer"}</p>
-              <p className="name">{data.autor || "Emmelie Björklund"}</p>
-            </section>
+          <Card
+          data={data}
+          user={user}
+          />
           </section>
-          {/*fin component card*/}
-        </section>
+         
+    
         {/*inicio component form*/}         
         <section className="form">
           <h2 className="title">Información</h2>

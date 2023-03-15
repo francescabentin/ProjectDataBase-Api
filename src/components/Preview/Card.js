@@ -5,8 +5,7 @@ import icongithub from '../../images/iconogithub.png';
 function Card({data,user}) {
   return (
     //la sección me pedía un padre para englobarlo todo
-    //<section className="cardAutor">
-    <section className="cardAutor">
+    <section className="autor">
       <section className="info-project">
         <div className="info-project-intro">
           <p className="subtitle">Personal Project Card</p>
@@ -24,20 +23,20 @@ function Card({data,user}) {
           <p className="text"> {data.technologies || "React - JS - MongoDB"}</p>
           <div className="div_icon">
             <a href="" target="_blank">
-            <img
-            src={icongithub}
-            title="enlace a repositorio"
-            alt="icono repositorio"
-            className="icon"
-            />
+              <img
+                src={icongithub}
+                title="enlace a repositorio"
+                alt="icono repositorio"
+                className="icon"
+              />
             </a>
             <a href="" target="_blank">
-            <img
-            src={iconweb}
-            title="enlace a web"
-            alt="icono web"
-            className="icon"
-            />
+              <img
+                src={iconweb}
+                title="enlace a web"
+                alt="icono web"
+                className="icon"
+              />
             </a>
           </div>
         </section>

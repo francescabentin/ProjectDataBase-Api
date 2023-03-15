@@ -80,12 +80,11 @@ const handleClickCreateCard = (ev) => {
          </section>
           {/*inicio component card* selecciono <section className="autor"> porque el componente me pide un padre para el chiquillo  */} 
 
-          <section className="autor">
+          
           <Card
           data={data}
           user={user}
           />
-          </section>
          
     
         {/*inicio component form*/}         

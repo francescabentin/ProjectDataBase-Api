@@ -223,7 +223,7 @@ const handleClickCreateCard = (ev) => {
           </section>
 
           <section className="card">
-            <span className={isCard ? 'linkCard' : 'hidden'}> {isError ? `La tarjeta ha sido creada: ${url}` : 'error'}</span>
+            <p className={isCard ? 'linkCard' : 'hidden'}> {isError ? `La tarjeta ha sido creada:` : 'Faltan datos por rellenar'}</p>
             <a href="" className="" target="_blank" rel="noreferrer">
               {url}
             </a>

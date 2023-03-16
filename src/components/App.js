@@ -25,16 +25,16 @@ const handleInput = (ev) => {
   const inputValue=ev.target.value;
   const inputName=ev.target.name;
   const textValidation = /^[A-Za-zñÑáéíóúÁÉÍÓÚüÜïÏç.,-_\s]*$/;
-  const linkValidation = /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+  const linkValidation = /^((https?|ftp|file):\/\/)?([\da-z.-]+).([a-z.]{2,6})([/\w .-]*)*\/?$/;
   console.log(inputValue)
   if (inputName === "name") {
     setData ({...data,name:inputValue});
   }
   else if (inputName === "slogan") {
     setData({...data,slogan:inputValue});
-  } else if (inputName === "repo" && textValidation.test(inputValue)) {
+  } else if (inputName === "repo" && linkValidation.test(inputValue)) {
     setData({...data,repo:inputValue});
-  } else if (inputName === "demo" && textValidation.test(inputValue)) {
+  } else if (inputName === "demo" && linkValidation.test(inputValue)) {
     setData({...data,demo:inputValue});
   } else if (inputName === "technologies") {
     setData({...data,technologies:inputValue});
@@ -47,15 +47,6 @@ const handleInput = (ev) => {
   }
 }
 
-const handleClickCreateCard = (ev) => {
-  ev.preventDefault();
-  console.log(data);
-  dataApi(data)
-  .then(info => {
-        console.log (info);
-    setUrl(info.cardURL);
-  })
-}
 
   return (
     <div className="container">
@@ -108,7 +99,9 @@ const handleClickCreateCard = (ev) => {
         <Form
         data={data}
         handleInput={handleInput}
-        handleClickCreateCard={handleClickCreateCard}
+        // handleClickCreateCard={handleClickCreateCard}
+        dataApi={dataApi}
+        setUrl={setUrl}
         url={url}
         />
 
@@ -120,4 +113,6 @@ const handleClickCreateCard = (ev) => {
 }
 
 export default App;
+
+
 

@@ -1,4 +1,15 @@
-const Form = (data, handleInput, handleClickCreateCard, url) => {
+const Form = ({data, handleInput, setUrl, dataApi, url}) => {
+
+  const handleClickCreateCard = (ev) => {
+  ev.preventDefault();
+  console.log(data);
+  dataApi(data)
+  .then(info => {
+        console.log (info);
+    setUrl(info.cardURL);
+  })
+}
+
     return   <section className="form">
           <h2 className="title">Información</h2>
 
@@ -138,3 +149,6 @@ export default Form;
 //   } else {
 //     previewGithub.href = `${data.github}`;
 //   }
+
+
+

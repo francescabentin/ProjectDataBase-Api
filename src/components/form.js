@@ -1,14 +1,6 @@
-const Form = ({data, handleInput, setUrl, dataApi, url}) => {
+const Form = ({data, handleInput, url, handleClickCreateCard}) => {
 
-  const handleClickCreateCard = (ev) => {
-  ev.preventDefault();
-  console.log(data);
-  dataApi(data)
-  .then(info => {
-        console.log (info);
-    setUrl(info.cardURL);
-  })
-}
+
 
     return   <section className="form">
           <h2 className="title">Información</h2>

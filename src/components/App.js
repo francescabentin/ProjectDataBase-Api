@@ -21,6 +21,7 @@ const [data, setData] = useState ({
   photo: 'https://via.placeholder.com/140x130',
 });
 
+
 const handleInput = (ev) => {
   const inputValue=ev.target.value;
   const inputName=ev.target.name;
@@ -47,6 +48,15 @@ const handleInput = (ev) => {
   }
 }
 
+  const handleClickCreateCard = (ev) => {
+  ev.preventDefault();
+  console.log(data);
+  dataApi(data)
+  .then(info => {
+        console.log (info);
+    setUrl(info.cardURL);
+  })
+}
 
   return (
     <div className="container">
@@ -99,9 +109,7 @@ const handleInput = (ev) => {
         <Form
         data={data}
         handleInput={handleInput}
-        // handleClickCreateCard={handleClickCreateCard}
-        dataApi={dataApi}
-        setUrl={setUrl}
+        handleClickCreateCard={handleClickCreateCard}
         url={url}
         />
 

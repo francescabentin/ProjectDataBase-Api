@@ -1,7 +1,5 @@
 const Form = ({data, handleInput, url, handleClickCreateCard}) => {
 
-
-
     return   <section className="form">
           <h2 className="title">Información</h2>
 

@@ -33,8 +33,11 @@ const handleInput = (ev) => {
   }
   else if (inputName === "slogan") {
     setData({...data,slogan:inputValue});
-  } else if (inputName === "repo" && linkValidation.test(inputValue)) {
+  } else if (inputName === "repo") {
     setData({...data,repo:inputValue});
+    if(!linkValidation.test(inputValue)){
+      console.log('no cumple los requisitos')
+    }
   } else if (inputName === "demo" && linkValidation.test(inputValue)) {
     setData({...data,demo:inputValue});
   } else if (inputName === "technologies") {

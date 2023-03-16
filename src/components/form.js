@@ -37,9 +37,9 @@ const Form = ({data, handleInput, url, handleClickCreateCard}) => {
                 id="repo"
                 placeholder="Repo *"
                 value={data.repo}
-                onChange={handleInput}
+                onInput={handleInput}
                 required
-                pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
+
               />
               <input
                 className="input"

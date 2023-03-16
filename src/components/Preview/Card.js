@@ -52,3 +52,4 @@ function Card({data,user}) {
 }
 
 export default Card;
+

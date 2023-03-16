@@ -1,4 +1,4 @@
-const Form = ({data, handleInput, url, handleClickCreateCard}) => {
+const Form = ({data, handleInput, url, handleClickCreateCard, isCard,isError}) => {
 
     return   <section className="form">
           <h2 className="title">Información</h2>
@@ -117,8 +117,8 @@ const Form = ({data, handleInput, url, handleClickCreateCard}) => {
           </section>
 
           <section className="card">
-            <span className="linkCard"> {`La tarjeta ha sido creada: ${url}`}</span>
-            <a href="" className="" target="_blank" rel="noreferrer">
+            <p className={isCard ? 'linkCard' : 'hidden'}> {isError ? `La tarjeta ha sido creada:` : 'Faltan datos por rellenar'}</p>
+            <a href={url} className="" target="_blank" rel="noreferrer">
               {url}
             </a>
           </section>

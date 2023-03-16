@@ -22,7 +22,7 @@ function Card({data,user}) {
         <section className="technologies">
           <p className="text"> {data.technologies || "React - JS - MongoDB"}</p>
           <div className="div_icon">
-            <a href="" target="_blank">
+            <a href={data.repo} target="_blank">
               <img
                 src={icongithub}
                 title="enlace a repositorio"
@@ -30,7 +30,7 @@ function Card({data,user}) {
                 className="icon"
               />
             </a>
-            <a href="" target="_blank">
+            <a href={data.demo} target="_blank">
               <img
                 src={iconweb}
                 title="enlace a web"

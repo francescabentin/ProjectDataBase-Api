@@ -77,14 +77,15 @@ const handleClickCreateCard = (ev) => {
           <ImgCard
           cover={cover}
           />
-         </section>
-          {/*inicio component card* selecciono <section className="autor"> porque el componente me pide un padre para el chiquillo  */} 
-
-          
           <Card
           data={data}
           user={user}
           />
+         </section>
+          {/*inicio component card* selecciono <section className="autor"> porque el componente me pide un padre para el chiquillo  */} 
+
+         
+        
          
     
         {/*inicio component form*/}         

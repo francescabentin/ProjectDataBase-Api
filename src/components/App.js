@@ -1,263 +1,52 @@
 import '../styles/App.scss';
-import cover from '../images/cover_2.jpeg';
-import user from '../images/user.jpeg';
-import logo from "../images/logo-adalab.png";
-import { useState } from 'react';
-import dataApi from '../services/Api.js';
+import {Route,Routes} from 'react-router-dom';
+
+
+//importo lo componentes
+
+import Header from './Header';
+import CreateCard from './CreateCard';
+import Landing from './Landing';
 
 function App() {
-  const [url, setUrl] = useState('');
-const [data, setData] = useState ({
-  name:'',
-  slogan:'',
-  repo:'',
-  demo: '',
-  technologies:'',
-  desc:'',
-  autor:'',
-  job:'',
-  image: 'https://via.placeholder.com/140x130',
-  photo: 'https://via.placeholder.com/140x130',
-});
 
-const handleInput = (ev) => {
-  const inputValue=ev.target.value;
-  const inputName=ev.target.name;
-  const textValidation = /^[A-Za-zñÑáéíóúÁÉÍÓÚüÜïÏç.,-_\s]*$/;
-  const linkValidation = /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
-  console.log(inputValue)
-  if (inputName === "name") {
-    setData ({...data,name:inputValue});
-  }
-  else if (inputName === "slogan") {
-    setData({...data,slogan:inputValue});
-  } else if (inputName === "repo" && textValidation.test(inputValue)) {
-    setData({...data,repo:inputValue});
-  } else if (inputName === "demo" && textValidation.test(inputValue)) {
-    setData({...data,demo:inputValue});
-  } else if (inputName === "technologies") {
-    setData({...data,technologies:inputValue});
-  } else if (inputName === "desc") {
-    setData({...data,desc:inputValue});
-  } else if (inputName === "autor" && textValidation.test(inputValue)) {
-    setData({...data,autor:inputValue});
-  } else if (inputName === "job" && textValidation.test(inputValue)) {
-   setData({...data,job:inputValue});
-  }
-}
+// /* VARIABLES ESTADO (DATOS) */
+//   const [allMovies, setAllMovies] = useState(ls.get('cache', []));
+//   const [filterValues, setFilterValues] = useState({
+//     filterTitle: '',
+//     filterSynopsis: '',
+//   });
 
-const handleClickCreateCard = (ev) => {
-  ev.preventDefault();
-  console.log(data);
-  dataApi(data)
-  .then(info => {
-        console.log (info);
-    setUrl(info.cardURL);
-  })
-}
+//   /* EFECTOS */
+//   useEffect(() => {
+//     // Código que solo se ejecuta una vez
+//     if (ls.notIncludes('cache')) {
+//       obj.fetchMovies().then((data) => {
+//         // Guardarlo en una variable.
+//         setAllMovies(data);
+//         ls.set('cache', data);
+//       });
+//     }
+//   }, []);  
 
   return (
     <div className="container">
-      <header className="header">
-        <div className="project-name">
-          <i className="fa-solid fa-laptop-code"></i>
-          <p className="text">Proyectos Molones</p>
-        </div>
-        <img className="logo" src={logo} title="Adalab" alt="Logo de Adalab" />
-      </header>
-      <main className="main">
-        {/* component preview */}
-        <section className="preview">
-          {/* component image*/}
-          <img className="image" src={cover} alt="" />
-          <section className="autor">
-            {/*inicio component card*/}
-            <section className="info-project">
-              <div className="info-project-intro">
-                <p className="subtitle">Personal Project Card</p>
-                <hr className="line" />
-              </div>
+      <Header/>
+      <Routes>
+        <Route path="/"
+        element={<Landing/>}>
+        </Route>
+        <Route path='/CreateCard'
+        element={<CreateCard />}>
+        </Route>
+      </Routes>
 
-              <h2 className="title">{data.name || "Elegant Workspace"}</h2>
-              <p className="slogan">{data.slogan || "Diseños Exclusivos"}</p>
-              <p className="desc">
-                {" "}
-                {data.desc ||
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus commodo tellus lectus lobortis."}
-              </p>
-              <section className="technologies">
-                <p className="text">
-                  {" "}
-                  {data.technologies || "React - JS - MongoDB"}
-                </p>
-                <i className="fa-solid fa-globe info--project__technologies-icon1"></i>
-                <i className="fa-brands fa-github info--project__technologies-icon1"></i>
-              </section>
-            </section>
-
-            <section className="info-autor">
-              <img className="image-card" src={user} alt="" />
-              <p className="job">{data.job || "Full Stack Developer"}</p>
-              <p className="name">{data.autor || "Emmelie Björklund"}</p>
-            </section>
-          </section>
-          {/*fin component card*/}
-        </section>
-        {/*inicio component form*/}
-        <section className="form">
-          <h2 className="title">Información</h2>
-
-          <section className="ask-info">
-            <p className="subtitle">Cuéntanos sobre el proyecto</p>
-            <hr className="line" />
-          </section>
-
-          <fieldset className="project">
-            <label htmlFor="name" className="label">
-              Nombre del proyecto*
-            </label>
-            <input
-              className="input"
-              type="text"
-              placeholder="Elegant Workspace"
-              name="name"
-              id="name"
-              value={data.name}
-              onInput={handleInput}
-              required
-            />
-            <label htmlFor="slogan" className="label">
-              Slogan*
-            </label>
-            <input
-              className="input"
-              type="text"
-              name="slogan"
-              id="slogan"
-              placeholder="Diseños Exclusivos"
-              value={data.slogan}
-              onChange={handleInput}
-              pattern="/^[A - ZÁ - üñÑ]+$/i"
-            />
-            <div className="project-links">
-              <label htmlFor="repo" className="label">
-                Repositorio*
-              </label>
-              <input
-                className="input"
-                type="text"
-                name="repo"
-                id="repo"
-                placeholder="https://github.com/Adalab/proyectos-molones"
-                value={data.repo}
-                onChange={handleInput}
-                required
-                pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
-              />
-              <label htmlFor="demo" className="label">
-                Demo link*
-              </label>
-              <input
-                className="input"
-                type="text"
-                placeholder="https://proyectosmolones.com/"
-                name="demo"
-                id="demo"
-                value={data.demo}
-                onChange={handleInput}
-                required
-                pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
-              />
-            </div>
-            <label htmlFor="technologies" className="label">
-              Tecnologías*
-            </label>
-            <input
-              className="input"
-              type="text"
-              placeholder="HTML5 - CSS3 - JAVASCRIPT"
-              name="technologies"
-              id="technologies"
-              value={data.technologies}
-              onChange={handleInput}
-              pattern="/^[A - ZÁ - üñÑ]+$/i"
-            />
-            <label htmlFor="desc" className="label">
-              Descripción*
-            </label>
-            <textarea
-              className="textarea"
-              type="text"
-              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus commodo tellus lectus lobortis."
-              name="desc"
-              id="desc"
-              value={data.desc}
-              onChange={handleInput}
-              required
-            ></textarea>
-          </fieldset>
-
-          <section className="ask-info">
-            <p className="subtitle">Cuéntanos sobre la autora</p>
-            <hr className="line" />
-          </section>
-
-          <fieldset className="autor">
-            <label htmlFor="autor" className="label">
-              Nombre del autor*
-            </label>
-            <input
-              className="input"
-              type="text"
-              placeholder="Emmelie Björklund*"
-              name="autor"
-              id="autor"
-              value={data.autor}
-              onChange={handleInput}
-              required
-              pattern="/^[A - ZÁ - üñÑ]+$/i"
-            />
-            <label htmlFor="job" className="label">
-              Puesto de trabajo*
-            </label>
-            <input
-              className="input"
-              type="text"
-              placeholder="Full Stack Developer"
-              name="job"
-              id="job"
-              value={data.job}
-              onChange={handleInput}
-              required
-              pattern="/^[A - ZÁ - üñÑ]+$/i"
-            />
-          </fieldset>
-
-          <section className="buttons-img">
-            <button className="btn">Subir foto de proyecto</button>
-            <button className="btn">Subir foto de autora</button>
-          </section>
-          <section className="buttons-img">
-            <button className="btn-large" onClick={handleClickCreateCard}>
-              Crear Tarjeta
-            </button>
-          </section>
-
-          <section className="card">
-            <span className="linkCard">
-              {" "}
-              {`La tarjeta ha sido creada: ${url}`}
-            </span>
-            <a href="" className="" target="_blank" rel="noreferrer">
-              {url}
-            </a>
-          </section>
-          {/*fin component form*/}
-        </section>
-      </main>
+     
     </div>
   );
 }
 
 export default App;
+
+
 

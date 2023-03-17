@@ -43,8 +43,11 @@ const handleInput = (ev) => {
     setData({...data,repo:inputValue});
     if(!linkValidation.test(inputValue)){
     }
-  } else if (inputName === "demo" && linkValidation.test(inputValue)) {
+  } else if (inputName === "demo") {
     setData({...data,demo:inputValue});
+    if (!linkValidation.test(inputValue)){
+      
+    }
   } else if (inputName === "technologies") {
     setData({...data,technologies:inputValue});
   } else if (inputName === "desc") {

@@ -35,12 +35,12 @@
   background-color: white;
   color: #3e3e3e;
   width: 85%;
-  height: 50%;
+  height: 50vh;
   transform: translateY(-40px);
   margin: auto;
   border-radius: 2rem;
-  //display: flex;
-  //flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
   gap: 2rem;
   padding: 1.5rem;
  
@@ -49,14 +49,14 @@
 @media (min-width: 768px) {
   .main .preview .autor {
     width: 90%;
-    height: 25%;
+    height: 30vh;
     transform: translateY(-50px);
   }
 }
 
 @media (min-width: 1024px) {
   .main .preview .autor {
-    height: 40%;
+    height: 43vh;
     width: 70%;
     transform: translateY(-200px);
     align-items: center;
@@ -64,6 +64,7 @@
     padding: 1.5rem;
   }
 }
+
 
 .info-autor {
   width: 40%;
@@ -160,7 +161,7 @@
   }
 }
 
-.info-project .title {
+.info-project .project-title {
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
@@ -169,7 +170,7 @@
 }
 
 @media (min-width: 768px) {
-  .info-project .title {
+  .info-project .project-title {
     font-size: 2rem;
     color: black;
     margin-bottom: 1rem;
@@ -177,7 +178,7 @@
 }
 
 @media (min-width: 1024px) {
-  .info-project .title {
+  .info-project .project-title {
     font-size: 2.4rem;
   }
 }

@@ -5,7 +5,6 @@ import Profile from '../Profile';
 
 function Card({data,user, className}) {
   return (
-    //la sección me pedía un padre para englobarlo todo
     <section className="autor">
       <section className="info-project">
         <div className="info-project-intro">
@@ -13,7 +12,7 @@ function Card({data,user, className}) {
           <hr className="line" />
         </div>
 
-        <h2 className="title">{data.name || "Elegant Workspace"}</h2>
+        <h2 className="project-title">{data.name || "Elegant Workspace"}</h2>
         <p className="slogan">{data.slogan || "Diseños Exclusivos"}</p>
         <p className="desc">
           {" "}

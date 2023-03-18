@@ -26,6 +26,8 @@ const CreateCard =()=>{
     photo: '',
     }));
 
+    const savedCards = ls.get('cards') || [];
+
     const [isCard, setIsCard] = useState(false);
     const [isError, setIsError] = useState(false);
 
@@ -81,13 +83,12 @@ const CreateCard =()=>{
             setIsError(false);
             }
         })
-        ls.set('card', data)
+        savedCards.push(data);
+        ls.set('cards', savedCards);
     }
     return (
          <main className="main">
-        {/* component preview */}
         <section className="preview">
-          { /* component image*/}
           <ImgCard
           className={"image"}
           data={data}
@@ -98,9 +99,7 @@ const CreateCard =()=>{
           data={data}
           defaultAvatar={user}
           />
-         </section>
-          {/*inicio component card* selecciono <section className="autor"> porque el componente me pide un padre para el chiquillo  */} 
-        {/*inicio component form*/}         
+         </section>      
         <Form
         data={data}
         handleInput={handleInput}
@@ -111,8 +110,6 @@ const CreateCard =()=>{
         updateAvatar={updateAvatar}
         updateProjectImg={updateProjectImg}
         />
-          {/*fin component form*/} 
-        {/* </section> */}
       </main>
     )
 }

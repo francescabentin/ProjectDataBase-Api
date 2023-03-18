@@ -40,8 +40,6 @@ function App() {
         element={<CreateCard />}>
         </Route>
       </Routes>
-
-     
     </div>
   );
 }

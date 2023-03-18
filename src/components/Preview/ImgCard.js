@@ -1,9 +1,11 @@
-import cover from '../../images/cover.jpeg';
+import Profile from "../Profile";
 
-
-function ImgCard () {
+function ImgCard ({cover, data, className}) {
     return (
-        <img className="image" src={cover} alt="cover" />
+        <Profile 
+        className={className} 
+        defaultAvatar={cover} 
+        avatar={data.image} />
     );
 }
 

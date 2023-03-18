@@ -1,4 +1,6 @@
-const Form = ({data, handleInput, url, handleClickCreateCard, isCard,isError}) => {
+import GetAvatar from "./GetAvatar";
+
+const Form = ({data, handleInput, url, handleClickCreateCard, isCard,isError, updateAvatar, updateProjectImg}) => {
 
     return   <section className="form">
           <h2 className="title">Información</h2>
@@ -106,10 +108,20 @@ const Form = ({data, handleInput, url, handleClickCreateCard, isCard,isError}) =
             />
           </fieldset>
 
-          <section className="buttons-img">
+        <GetAvatar 
+        value={"Subir foto de proyecto"} 
+        className={"btn"} 
+        updateAvatar={updateAvatar}/>
+
+        <GetAvatar 
+        value={"Subir foto de autora"} 
+        className={"btn"}  
+        updateProjectImg={updateProjectImg}/>
+
+                  {/*   <section className="buttons-img">
             <button className="btn">Subir foto de proyecto</button>
             <button className="btn">Subir foto de autora</button>
-          </section>
+          </section> */}
           <section className="buttons-img">
            <button className="btn-large"  onClick={handleClickCreateCard}>
               Crear Tarjeta

@@ -1,8 +1,9 @@
 //problenmas con data y user (dos formas de arreglarlo: import o props)
 import iconweb from '../../images/iconoweb.png';
 import icongithub from '../../images/iconogithub.png';
+import Profile from '../Profile';
 
-function Card({data,user}) {
+function Card({data,user, className}) {
   return (
     //la sección me pedía un padre para englobarlo todo
     <section className="autor">
@@ -22,7 +23,11 @@ function Card({data,user}) {
         <section className="technologies">
           <p className="text"> {data.technologies || "React - JS - MongoDB"}</p>
           <div className="div_icon">
-            <a href={data.repo} target="_blank">
+            <a 
+            href={data.repo} 
+            target="_blank"
+            rel="noreferrer"
+            >
               <img
                 src={icongithub}
                 title="enlace a repositorio"
@@ -30,7 +35,10 @@ function Card({data,user}) {
                 className="icon"
               />
             </a>
-            <a href={data.demo} target="_blank">
+            <a 
+            href={data.demo} 
+            target="_blank"
+            rel="noreferrer">
               <img
                 src={iconweb}
                 title="enlace a web"
@@ -43,10 +51,11 @@ function Card({data,user}) {
       </section>
 
       <section className="info-autor">
-        <img className="image-card" src={user} alt="" />
+        <Profile className={className} defaultAvatar={user} avatar={data.photo} />
+        {/* <img className="image-card" src={user} alt="" /> */}
         <p className="job">{data.job || "Full Stack Developer"}</p>
         <p className="name">{data.autor || "Emmelie Björklund"}</p>
-      </section>
+    </section>
     </section>
   );
 }

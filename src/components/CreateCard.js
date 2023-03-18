@@ -1,9 +1,8 @@
 import ImgCard from '../components/Preview/ImgCard';
 import Card from '../components/Preview/Card';
 import Form from './Form';
-import cover from '../images/cover_2.jpeg';
+import cover from '../images/cover.jpeg';
 import user from '../images/user.jpeg';
-import logo from "../images/logo-adalab.png";
 import { useState } from 'react';
 import dataApi from '../services/Api.js';
 import '../styles/App.scss';
@@ -23,12 +22,20 @@ const CreateCard =()=>{
     desc:'',
     autor:'',
     job:'',
-    image: 'https://via.placeholder.com/140x130',
-    photo: 'https://via.placeholder.com/140x130',
+    image: '',
+    photo: '',
     }));
 
     const [isCard, setIsCard] = useState(false);
     const [isError, setIsError] = useState(false);
+
+    const updateAvatar = (avatar) => {
+        setData({ ...data, photo: avatar });
+    }
+
+    const updateProjectImg = (projectImg) => {
+        setData({ ...data, image: projectImg });
+    }
 
     const handleInput = (ev) => {
         const inputValue=ev.target.value;
@@ -82,9 +89,12 @@ const CreateCard =()=>{
         <section className="preview">
           { /* component image*/}
           <ImgCard
+          className={"image"}
+          data={data}
           cover={cover}
           />
           <Card
+          className={"image-card"}
           data={data}
           user={user}
           />
@@ -98,6 +108,8 @@ const CreateCard =()=>{
         url={url}
         isCard={isCard}
         isError={isError}
+        updateAvatar={updateAvatar}
+        updateProjectImg={updateProjectImg}
         />
           {/*fin component form*/} 
         {/* </section> */}

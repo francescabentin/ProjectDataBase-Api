@@ -1,10 +1,10 @@
 import Profile from "../Profile";
 
-function ImgCard ({cover, data, className}) {
+function ImgCard ({defaultAvatar, data, className}) {
     return (
         <Profile 
         className={className} 
-        defaultAvatar={cover} 
+        defaultAvatar={defaultAvatar} 
         avatar={data.image} />
     );
 }

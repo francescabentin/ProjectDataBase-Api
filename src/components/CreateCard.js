@@ -33,8 +33,8 @@ const CreateCard =()=>{
         setData({ ...data, photo: avatar });
     }
 
-    const updateProjectImg = (projectImg) => {
-        setData({ ...data, image: projectImg });
+    const updateProjectImg = (avatar) => {
+        setData({ ...data, image: avatar });
     }
 
     const handleInput = (ev) => {
@@ -91,12 +91,12 @@ const CreateCard =()=>{
           <ImgCard
           className={"image"}
           data={data}
-          cover={cover}
+          defaultAvatar={cover}
           />
           <Card
           className={"image-card"}
           data={data}
-          user={user}
+          defaultAvatar={user}
           />
          </section>
           {/*inicio component card* selecciono <section className="autor"> porque el componente me pide un padre para el chiquillo  */} 

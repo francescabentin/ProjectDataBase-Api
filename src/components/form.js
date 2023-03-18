@@ -116,12 +116,7 @@ const Form = ({data, handleInput, url, handleClickCreateCard, isCard,isError, up
         <GetAvatar 
         value={"Subir foto de autora"} 
         className={"btn"}  
-        updateProjectImg={updateProjectImg}/>
-
-                  {/*   <section className="buttons-img">
-            <button className="btn">Subir foto de proyecto</button>
-            <button className="btn">Subir foto de autora</button>
-          </section> */}
+        updateAvatar={updateProjectImg}/>
           <section className="buttons-img">
            <button className="btn-large"  onClick={handleClickCreateCard}>
               Crear Tarjeta

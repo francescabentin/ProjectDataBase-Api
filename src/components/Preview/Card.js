@@ -3,7 +3,7 @@ import iconweb from '../../images/iconoweb.png';
 import icongithub from '../../images/iconogithub.png';
 import Profile from '../Profile';
 
-function Card({data,user, className}) {
+function Card({data, defaultAvatar, className}) {
   return (
     <section className="autor">
       <section className="info-project">
@@ -50,8 +50,10 @@ function Card({data,user, className}) {
       </section>
 
       <section className="info-autor">
-        <Profile className={className} defaultAvatar={user} avatar={data.photo} />
-        {/* <img className="image-card" src={user} alt="" /> */}
+        <Profile 
+        className={className} 
+        defaultAvatar={defaultAvatar} 
+        avatar={data.photo} />
         <p className="job">{data.job || "Full Stack Developer"}</p>
         <p className="name">{data.autor || "Emmelie Björklund"}</p>
     </section>

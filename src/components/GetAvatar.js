@@ -77,8 +77,9 @@ function GetAvatar(props) {
 }
 
 GetAvatar.propTypes = {
-/*   avatar: PropTypes.string.isRequired, */
+  avatar: PropTypes.string.isRequired,
   updateAvatar: PropTypes.func.isRequired,
+  updateProjectImg: PropTypes.func.isRequired,
 };
 
 export default GetAvatar;

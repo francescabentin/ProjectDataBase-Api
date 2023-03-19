@@ -1,61 +1,49 @@
-//problenmas con data y user (dos formas de arreglarlo: import o props)
-import iconweb from '../../images/iconoweb.png';
-import icongithub from '../../images/iconogithub.png';
+/* import iconweb from '../../images/iconoweb.png';
+import icongithub from '../../images/iconogithub.png'; */
 import Profile from '../Profile';
 
 function Card({data, defaultAvatar, className}) {
   return (
-    <section className="autor">
-      <section className="info-project">
-        <div className="info-project-intro">
-          <p className="subtitle">Personal Project Card</p>
-          <hr className="line" />
+    <section className="preview__card">
+      <section className="preview__card--info">
+        <div className="preview__card--info--intro">
+          <p className="preview__card--info--subtitle">Personal Project Card</p>
+          <hr className="preview__card--info--line" />
         </div>
-
-        <h2 className="project-title">{data.name || "Elegant Workspace"}</h2>
-        <p className="slogan">{data.slogan || "Diseños Exclusivos"}</p>
-        <p className="desc">
+        <h2 className="preview__card--info--title">{data.name || "Elegant Workspace"}</h2>
+        <p className="preview__card--info--slogan">{data.slogan || "Diseños Exclusivos"}</p>
+        <p className="preview__card--info--desc">
           {" "}
           {data.desc ||
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus commodo tellus lectus lobortis."}
         </p>
-        <section className="technologies">
+        <section className="preview__card--info--technologies">
           <p className="text"> {data.technologies || "React - JS - MongoDB"}</p>
-          <div className="div_icon">
+        </section>
+        <div className="preview__card--info--icons">
             <a 
             href={data.repo} 
             target="_blank"
             rel="noreferrer"
             >
-              <img
-                src={icongithub}
-                title="enlace a repositorio"
-                alt="icono repositorio"
-                className="icon"
-              />
+              <i class="preview__card--info--i fa-brands fa-github"></i>
             </a>
             <a 
             href={data.demo} 
             target="_blank"
             rel="noreferrer">
-              <img
-                src={iconweb}
-                title="enlace a web"
-                alt="icono web"
-                className="icon"
-              />
+              <i class="preview__card--info--i fa-solid fa-globe"></i>
             </a>
           </div>
-        </section>
       </section>
 
-      <section className="info-autor">
+      <section className="preview__card--autor">
         <Profile 
         className={className} 
         defaultAvatar={defaultAvatar} 
         avatar={data.photo} />
-        <p className="job">{data.job || "Full Stack Developer"}</p>
-        <p className="name">{data.autor || "Emmelie Björklund"}</p>
+        <p className="preview__card--autor--job">{data.job || "Full Stack Developer"}</p>
+        <p className="preview__card--autor--name">{data.autor || "Emmelie Björklund"}</p>
     </section>
     </section>
   );

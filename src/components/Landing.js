@@ -13,7 +13,7 @@ const Landing =()=>{
       return savedCards.map((data) => {
         return (
           <Card
-          className={"image-card"}
+          className={"preview__card--autor--img"}
           data={data}
           defaultAvatar={user}
           />

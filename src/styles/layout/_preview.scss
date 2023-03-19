@@ -1,283 +1,238 @@
-@media (min-width: 768px) {
-  .main .preview {
+.preview {
+  @media (min-width: 768px) {
     width: 60%;
   }
-}
 
-@media (min-width: 1024px) {
-  .main .preview {
+  @media (min-width: 1024px) {
     width: 60%;
   }
-}
 
-.main .preview .image {
-  object-fit: cover;
-  width: 100%;
-  height: 80%;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
-
-@media (min-width: 768px) {
-  .main .preview .image {
+  &__cover-img {
     object-fit: cover;
     width: 100%;
-    height: 70%;
-  }
-}
+    height: 80%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
-@media (min-width: 1024px) {
-  .main .preview .image {
-    height: 100%;
-  }
-}
+    @media (min-width: 768px) {
+      object-fit: cover;
+      width: 100%;
+      height: 70%;
+    }
 
-.autor {
-  display: flex;
-  flex-direction: row-reverse;
-  background-color: white;
-  color: #3e3e3e;
-  width: 40%;
-  height: 25%;
-  border-radius: 2rem;
-  gap: 2rem;
-  padding: 1.5rem;
+    @media (min-width: 1024px) {
+      height: 100%;
+    }
   }
 
-.main .preview .autor {
-  background-color: white;
-  color: #3e3e3e;
-  width: 85%;
-  height: 50vh;
-  transform: translateY(-40px);
-  margin: auto;
-  border-radius: 2rem;
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 2rem;
-  padding: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .main .preview .autor {
-    width: 90%;
-    height: 30vh;
-    transform: translateY(-50px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .main .preview .autor {
-    height: 43vh;
-    width: 70%;
-    transform: translateY(-200px);
-    align-items: center;
-    justify-content: center;
+  &__card {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: white;
+    color: #3e3e3e;
+    width: 85%;
+    height: 50vh;
+    border-radius: 2rem;
+    margin: auto;
+    gap: 2rem;
     padding: 1.5rem;
-  }
-}
 
+    @media (min-width: 768px) {
+      width: 90%;
+      height: 30vh;
+    }
 
-.info-autor {
-  width: 40%;
-  text-align: center;
-}
+    @media (min-width: 1024px) {
+      height: 43vh;
+      width: 70%;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
 
-.info-autor .image-card {
-  border-radius: 50%;
-  width: 90%;
-}
+    &--info {
+      width: 60%;
 
-@media (min-width: 768px) {
-  .info-autor .image-card {
-    border-radius: 50%;
-    width: 90%;
-  }
-}
+      &--intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
 
-@media (min-width: 1024px) {
-.info-autor .image-card {
-  width: 50%;
-}
-}
+      &--subtitle {
+        background-color: white;
+        font-size: 0.8rem;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        position: relative;
+        z-index: 1;
+        width: 65%;
+        text-align: center;
 
-.info-autor .job {
-  font-family: "Catamaran", sans-serif;
-  color: #909090;
-  font-size: 1rem;
-}
+        @media (min-width: 768px) {
+          font-size: 1.1rem;
+          text-align: center;
+        }
 
-@media (min-width: 768px) {
-  .info-autor .job {
-    font-size: 1.4rem;
-  }
-}
+        @media (min-width: 1024px) {
+          font-size: 1.5rem;
+          width: 35%;
+        }
+      }
 
-@media (min-width: 1024px) {
-  .info-autor .job {
-    font-size: 1.8rem;
-  }
-}
+      &--line {
+        width: 100%;
+        border: 0;
+        height: 0.1rem;
+        transform: translateY(-7px);
+        background-image: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0),
+          rgba(1, 1, 1, 0.75),
+          rgba(255, 255, 255, 0)
+        );
 
-.info-autor .name {
-  font-family: "Catamaran", sans-serif;
-  font-size: 1.4rem;
-  font-weight: bold;
-}
+        @media (min-width: 768px) {
+          transform: translateY(-9px);
+        }
+      }
 
-@media (min-width: 768px) {
-  .info-autor .name {
-    font-size: 1.6rem;
-  }
-}
+      &--title {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: black;
+        text-align: left;
 
-@media (min-width: 1024px) {
-  .info-autor .name {
-    font-size: 2.2rem;
-  }
-}
+        @media (min-width: 768px) {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
 
-.info-project {
-  width: 60%;
-}
+        @media (min-width: 1024px) {
+          font-size: 2.4rem;
+        }
+      }
 
-.info-project-intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
+      &--slogan {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #575757;
+        font-weight: bold;
 
-.info-project .subtitle {
-  background-color: white;
-  font-size: 0.8rem;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  position: relative;
-  z-index: 1;
-  width: 65%;
-  text-align: center;
-}
+        @media (min-width: 768px) {
+          font-size: 1.4rem;
+        }
+        @media (min-width: 1024px) {
+          font-size: 1.8rem;
+        }
+      }
 
-@media (min-width: 768px) {
-  .info-project .subtitle {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-}
+      &--desc {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
 
-@media (min-width: 1024px) {
-  .info-project .subtitle {
-    font-size: 1.5rem;
-    width: 35%;
-  }
-}
+        @media (min-width: 768px) {
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+        }
 
-.info-project .project-title {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: black;
-  text-align: left;
-}
+        @media (min-width: 1024px) {
+          font-size: 1.6rem;
+        }
+      }
 
-@media (min-width: 768px) {
-  .info-project .project-title {
-    font-size: 2rem;
-    color: black;
-    margin-bottom: 1rem;
-  }
-}
+      &--technologies {
+        font-family: "Catamaran", sans-serif;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: lightgray;
+        border-radius: 2rem;
+        font-size: 1rem;
+        padding: 1rem;
 
-@media (min-width: 1024px) {
-  .info-project .project-title {
-    font-size: 2.4rem;
-  }
-}
+        @media (min-width: 768px) {
+          font-size: 1.4rem;
+        }
 
-.info-project .desc {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
+        @media (min-width: 1024px) {
+          font-size: 1.8rem;
+        }
+      }
 
-@media (min-width: 768px) {
-  .info-project .desc {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .info-project .desc {
-    font-size: 1.6rem;
-
-  }
-}
-
-.info-project .slogan {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #575757;
-  font-weight: bold;
-}
-@media (min-width: 768px) {
-  .info-project .slogan {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-  }
-}
-@media (min-width: 1024px) {
-  .info-project .slogan {
-    font-size: 1.8rem;
-  }
-}
-
-.info-project .line {
-  width: 100%;
-  border: 0;
-  height: 0.1rem;
-  transform: translateY(-7px);
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    rgba(1, 1, 1, 0.75),
-    rgba(255, 255, 255, 0)
-  );
-}
-
-@media (min-width: 768px) {
-  .info-project .line {
-  transform: translateY(-9px);
-  }
-}
-
-
-.technologies {
-  font-family: "Catamaran", sans-serif;
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: lightgray;
-  border-radius: 2rem;
-  font-size: 1rem;
-  padding: 1rem;
-  
-}
-.div_icon {
-  padding-left: 5px;
+      &--icons {
+        padding-left: 5px;
   padding-right: 10px;
-}
 
-@media (min-width: 768px) {
-  .technologies {
-    font-size: 1.4rem;
+        &--i {
+         font-size: 2rem;
+         color: black;
+        }
+      }
+    }
+
+    &--autor {
+      width: 40%;
+      text-align: center;
+
+      &--img {
+        border-radius: 50%;
+        width: 90%;
+
+        @media (min-width: 768px) {
+          border-radius: 50%;
+          width: 90%;
+        }
+
+        @media (min-width: 1024px) {
+          width: 50%;
+        }
+      }
+
+      &--job {
+        font-family: "Catamaran", sans-serif;
+        color: #909090;
+        font-size: 1rem;
+
+        @media (min-width: 768px) {
+          font-size: 1.4rem;
+        }
+
+        @media (min-width: 1024px) {
+          font-size: 1.8rem;
+        }
+      }
+
+      &--name {
+        font-family: "Catamaran", sans-serif;
+        font-size: 1.4rem;
+        font-weight: bold;
+
+        @media (min-width: 768px) {
+          font-size: 1.6rem;
+        }
+
+        @media (min-width: 1024px) {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+
+  &__card-position {
+    transform: translateY(-40px);
+
+    @media (min-width: 768px) {
+      transform: translateY(-50px);
+    }
+
+    @media (min-width: 1024px) {
+      transform: translateY(-200px);
+    }
   }
 }
 
-@media (min-width: 1024px) {
-  .technologies {
-    font-size: 1.8rem;
-  }
-}

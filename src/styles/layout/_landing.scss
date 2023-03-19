@@ -1,8 +1,49 @@
-.projects-list{
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin: 7rem 0 2rem 0;
+  }
+
+  &__subtitle {
+    font-size: 1.7rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__btns{
+    display: flex;
+    margin-bottom: 5rem;
+    gap: 3rem;
+  }
+  
+  &__btn {
+    width: 16rem;
+    margin-top: 1rem;
+    color: white;
+    text-align: center;
+    border: none;
+    height: 4.3rem;
+    background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
+    border-radius: 4rem;
+  }
+
+  &__projects-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
     align-items: center;
     justify-content: center;
+    border-top: solid white 1px;
+    padding-top: 5rem;
+  }
 }

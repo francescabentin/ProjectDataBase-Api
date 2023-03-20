@@ -63,7 +63,7 @@ function GetAvatar(props) {
         <input
           type="file"
           ref={myFileField}
-          className="get-avatar__upload-field"
+          className="form__btn get-avatar__upload-field"
           onChange={uploadImage}
         />
       </label>

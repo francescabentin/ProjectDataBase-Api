@@ -12,16 +12,13 @@ const Form = ({
 }) => {
   return (
     <section className="form">
-      <h2 className="title">Información</h2>
+      <h2 className="form__title">Información</h2>
+      <p className="form__subtitle">Cuéntanos sobre el proyecto</p>
+      <hr className="form__line" />
 
-      <section className="ask-info">
-        <p className="subtitle">Cuéntanos sobre el proyecto</p>
-        <hr className="line" />
-      </section>
-
-      <fieldset className="project">
+      <fieldset className="form__project">
         <input
-          className="input"
+          className="form__input"
           type="text"
           placeholder="Nombre del proyecto *"
           name="name"
@@ -31,18 +28,18 @@ const Form = ({
           required
         />
         <input
-          className="input"
+          className="form__input"
           type="text"
           name="slogan"
           id="slogan"
-          placeholder="Slogan"
+          placeholder="Slogan *"
           value={data.slogan}
           onChange={handleInput}
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
-        <div className="project-links">
+        <div className="form__project--links">
           <input
-            className="input"
+            className="form__input"
             type="text"
             name="repo"
             id="repo"
@@ -52,7 +49,7 @@ const Form = ({
             required
           />
           <input
-            className="input"
+            className="form__input"
             type="text"
             placeholder="Demo *"
             name="demo"
@@ -64,9 +61,9 @@ const Form = ({
           />
         </div>
         <input
-          className="input"
+          className="form__input"
           type="text"
-          placeholder="Tecnologías"
+          placeholder="Tecnologías *"
           name="technologies"
           id="technologies"
           value={data.technologies}
@@ -74,7 +71,7 @@ const Form = ({
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
         <textarea
-          className="textarea"
+          className="form__input--textarea"
           type="text"
           placeholder="Descripción *"
           name="desc"
@@ -85,14 +82,12 @@ const Form = ({
         ></textarea>
       </fieldset>
 
-      <section className="ask-info">
-        <p className="subtitle">Cuéntanos sobre la autora</p>
-        <hr className="line" />
-      </section>
+      <p className="form__subtitle">Cuéntanos sobre la autora</p>
+      <hr className="form__line" />
 
-      <fieldset className="autor-input">
+      <fieldset className="form__autor">
         <input
-          className="input"
+          className="form__input"
           type="text"
           placeholder="Nombre *"
           name="autor"
@@ -103,7 +98,7 @@ const Form = ({
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
         <input
-          className="input"
+          className="form__input"
           type="text"
           placeholder="Trabajo *"
           name="job"
@@ -113,27 +108,26 @@ const Form = ({
           required
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
+
+        <section className="form__autor--buttons">
+          <GetAvatar
+            value={"Subir foto de proyecto"}
+            className={"form__btn"}
+            updateAvatar={updateAvatar}
+          />
+
+          <GetAvatar
+            value={"Subir foto de autora"}
+            className={"form__btn"}
+            updateAvatar={updateProjectImg}
+          />
+        </section>
       </fieldset>
 
-      <GetAvatar
-        value={"Subir foto de proyecto"}
-        className={"btn"}
-        updateAvatar={updateAvatar}
-      />
-
-      <GetAvatar
-        value={"Subir foto de autora"}
-        className={"btn"}
-        updateAvatar={updateProjectImg}
-      />
-
-      <section className="buttons-img">
-        <button className="btn-large" onClick={handleClickCreateCard}>
+      <section className="form__create-card">
+        <button className="form__btn" onClick={handleClickCreateCard}>
           Crear Tarjeta
         </button>
-      </section>
-
-      <section className="card">
         <p className={isCard ? "linkCard" : "hidden"}>
           {" "}
           {isError ? `La tarjeta ha sido creada:` : "Faltan datos por rellenar"}

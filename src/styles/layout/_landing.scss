@@ -42,26 +42,12 @@
   }
 
   &__projects-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 3rem;
     align-items: center;
     justify-content: center;
     border-top: solid white 1px;
     padding-top: 5rem;
   }
 }
-
-//estilos de la tarjeta para cambiar de la otra
- /* .autor {
-  display: flex;
-  flex-direction: row-reverse;
-  background-color: white;
-  color: #3e3e3e;
-  width: 40%;
-  height: 25%;
-  border-radius: 2rem;
-  gap: 2rem;
-  padding: 1.5rem;
-} */

@@ -2,22 +2,18 @@
 @import "./preview";
 
 .main {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0 30px 0;
+  gap: 30px;
+
+  @media (min-width: 768px) {
     display: flex;
-    flex-direction: column;
-    padding: 30px 0 30px 0;
-    gap: 30px;
-}
-
-@media (min-width:768px) {
-    .main{
-        display: flex;
-        flex-direction: row;
+    flex-direction: row;
     padding-top: 50px;
-    }
-}
+  }
 
-@media (min-width:1024px) {
-    .main{
-        height: 70vh;
-    }
+  @media (min-width: 1024px) {
+    height: 70vh;
+  }
 }

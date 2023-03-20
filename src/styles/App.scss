@@ -9,41 +9,16 @@
     background-color: #302c42;
     height: 100vh;
     padding: 20px;
-}
 
-@media (min-width: 1024px) {
-    .body {
+    @media (min-width: 1024px) {
     padding: 40px;
-    }
-}
-
-.btn-color {
-    border-radius: 20px;
-    width: 85px;
-    height: 30px;
-    font-weight: bold;
-}
-
-.btn-color-dark {
-    background-color: black;
-    color: white;
-}
-
-.card {
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-@media (min-width: 1024px) {
-    .card {
-    font-size: 2rem;
 }
 }
 
 .hidden {
     display: none;
 }
+
 .linkCard {
     text-decoration: none;
     color: #C0B7E8;

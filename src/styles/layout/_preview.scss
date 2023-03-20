@@ -30,23 +30,19 @@
     background-color: white;
     color: #3e3e3e;
     width: 85%;
-    height: 50vh;
     border-radius: 2rem;
     margin: auto;
     gap: 2rem;
-    padding: 1.5rem;
+    padding: 3rem 1.7rem;
 
     @media (min-width: 768px) {
       width: 90%;
-      height: 30vh;
     }
 
     @media (min-width: 1024px) {
-      height: 43vh;
       width: 70%;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
     }
 
     &--info {
@@ -84,7 +80,7 @@
         width: 100%;
         border: 0;
         height: 0.1rem;
-        transform: translateY(-7px);
+        transform: translateY(-10px);
         background-image: linear-gradient(
           to right,
           rgba(255, 255, 255, 0),
@@ -93,7 +89,11 @@
         );
 
         @media (min-width: 768px) {
-          transform: translateY(-9px);
+          transform: translateY(-10px);
+        }
+
+        @media (min-width: 1024px) {
+          transform: translateY(-20px);
         }
       }
 
@@ -165,12 +165,11 @@
       }
 
       &--icons {
-        padding-left: 5px;
-  padding-right: 10px;
-
         &--i {
-         font-size: 2rem;
+         font-size: 1.5rem;
          color: black;
+         padding-right: 0.7rem;
+         padding-top: 0.6rem;
         }
       }
     }

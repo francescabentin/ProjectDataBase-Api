@@ -1,65 +1,51 @@
 .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+  }
 
-@media (min-width: 768px){
-    .header {
-        display:flex;
-    }
-}
-
-
-.project-name{
+  &__project {
     display: flex;
     gap: 1rem;
     align-items: center;
-}
 
-.header .text {
-    color: #7D7A88;
-    font-family: 'Poppins',
-        sans-serif;
-    font-size: 1.4rem;
-}
+    &--name {
+      color: #7d7a88;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.4rem;
 
-@media (min-width: 768px) {
-    .header .text {
-    font-size: 1.6rem;
-}
-}
+      @media (min-width: 768px) {
+        font-size: 1.6rem;
+      }
 
-@media (min-width: 1024px) {
-    .header .text {
-    font-size: 1.8rem;
-}
-}
+      @media (min-width: 1024px) {
+        font-size: 1.8rem;
+      }
+    }
 
-.header .fa-solid {
-    color:white;
-    font-size: 3rem;
-}
+    &--icon {
+      color: white;
+      font-size: 3rem;
 
-@media (min-width: 768px) {
-    .header .fa-solid {
-    color:white;
-    font-size: 4.5rem;
-}
-}
+      @media (min-width: 768px) {
+        color: white;
+        font-size: 4.5rem;
+      }
+    }
+  }
 
-.header .logo {
+  &__logo {
     width: 35%;
-}
 
-@media (min-width: 768px) {
-    .header .logo {
-    width: 20%;
-}
-}
+    @media (min-width: 768px) {
+      width: 20%;
+    }
 
-@media (min-width: 1024px) {
-    .header .logo {
-    width: 8%;
-}
+    @media (min-width: 1024px) {
+      width: 8%;
+    }
+  }
 }

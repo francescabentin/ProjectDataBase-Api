@@ -19,7 +19,7 @@
 
       @media (min-width: 768px) {
         font-size: 1.6rem;
-      }
+      } 
 
       @media (min-width: 1024px) {
         font-size: 1.8rem;
@@ -37,6 +37,10 @@
     }
   }
 
+  &__boca {
+    width: 20%;
+  }
+
   &__logo {
     width: 35%;
 
@@ -45,7 +49,7 @@
     }
 
     @media (min-width: 1024px) {
-      width: 8%;
+      width: 15%;
     }
   }
 }

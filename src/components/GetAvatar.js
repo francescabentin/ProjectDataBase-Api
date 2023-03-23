@@ -59,15 +59,15 @@ function GetAvatar(props) {
 
   return (
     <div className="get-avatar">
-      <label className="get-avatar__label btn">
+      <label className="form__btn--get">
+        {props.value}
         <input
           type="file"
           ref={myFileField}
-          className="form__btn get-avatar__upload-field"
+          className="hidden"
           onChange={uploadImage}
         />
       </label>
-
       {/* <div
         className="get-avatar__preview"
         style={{ backgroundImage: `url(${avatar})` }}

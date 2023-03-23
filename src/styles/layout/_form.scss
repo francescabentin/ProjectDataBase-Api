@@ -14,7 +14,7 @@
   }
 
   @media (min-width: 1024px) {
-    height: 120%;
+    height: 160%;
   }
 
   &__title {
@@ -123,6 +123,27 @@
         width: 22rem;
         height: 5.5rem;
     }
+
+    &--get {
+    display: inline-block;
+    width: 16rem;
+    height: 3rem;
+    margin: 1rem;
+    padding-top: 1rem;
+    font-size: 1.6rem;
+    color: white;
+    text-align: center;
+    border: none;
+    background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
+    border-radius: 4rem;
+
+     @media (min-width: 1024px){
+      height: 4rem;
+           padding-top: 2.2rem;
+           padding-left: 1rem;
+           padding-right: 1rem;
+    }
+    }
   }
 
   &__project {
@@ -148,6 +169,7 @@
     gap: 1rem;
 
     &--buttons {
+      margin-top: 4rem;
       padding: 1rem;
       gap: 3rem;
 

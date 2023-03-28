@@ -59,7 +59,7 @@ function GetAvatar(props) {
 
   return (
     <div className="get-avatar">
-      <label className="form__btn">
+      <label className="form__btn--get">
         {props.value}
         <input
           type="file"
@@ -68,7 +68,6 @@ function GetAvatar(props) {
           onChange={uploadImage}
         />
       </label>
-
       {/* <div
         className="get-avatar__preview"
         style={{ backgroundImage: `url(${avatar})` }}

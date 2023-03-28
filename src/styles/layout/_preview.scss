@@ -12,6 +12,7 @@
     width: 100%;
     height: 80%;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 2rem;
 
     @media (min-width: 768px) {
       object-fit: cover;
@@ -59,7 +60,7 @@
         background-color: white;
         font-size: 0.8rem;
         text-align: center;
-        font-family: "Poppins", sans-serif;
+         font-family: 'Inter', sans-serif;
         position: relative;
         z-index: 1;
         width: 65%;
@@ -98,7 +99,7 @@
       }
 
       &--title {
-        font-family: "Poppins", sans-serif;
+         font-family: 'Inter', sans-serif;
         font-size: 1.4rem;
         font-weight: bold;
         color: black;
@@ -115,7 +116,7 @@
       }
 
       &--slogan {
-        font-family: "Poppins", sans-serif;
+         font-family: 'Inter', sans-serif;
         font-size: 1.2rem;
         margin-bottom: 1rem;
         color: #575757;
@@ -130,7 +131,7 @@
       }
 
       &--desc {
-        font-family: "Poppins", sans-serif;
+         font-family: 'Inter', sans-serif;
         font-size: 0.8rem;
         margin-bottom: 1rem;
         line-height: 1.5;
@@ -146,7 +147,7 @@
       }
 
       &--technologies {
-        font-family: "Catamaran", sans-serif;
+         font-family: 'Inter', sans-serif;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -193,7 +194,7 @@
       }
 
       &--job {
-        font-family: "Catamaran", sans-serif;
+         font-family: 'Inter', sans-serif;
         color: #909090;
         font-size: 1rem;
 
@@ -207,7 +208,7 @@
       }
 
       &--name {
-        font-family: "Catamaran", sans-serif;
+         font-family: 'Inter', sans-serif;
         font-size: 1.4rem;
         font-weight: bold;
 

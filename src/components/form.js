@@ -18,7 +18,7 @@ const Form = ({
 
       <fieldset className="form__project">
         <label className="form__label" htmlFor="name">
-          Nombre del proyecto *
+          Nombre del proyecto<span className="span"> *</span>
         </label>
         <input
           className="form__input"
@@ -33,14 +33,14 @@ const Form = ({
         <p className="form__error-msg"></p>
 
         <label className="form__label" htmlFor="slogan">
-          Slogan *
+          Slogan<span className="span"> *</span>
         </label>
         <input
           className="form__input"
           type="text"
           name="slogan"
           id="slogan"
-          placeholder="Diseños Exclusivos"
+          placeholder="Ej: Diseños Exclusivos"
           value={data.slogan}
           onChange={handleInput}
           pattern="/^[A - ZÁ - üñÑ]+$/i"
@@ -49,10 +49,10 @@ const Form = ({
 
         <div className="form__project--links">
           <label className="form__label" htmlFor="repo">
-            Repositorio *
+            Repositorio<span className="span"> *</span>
           </label>
           <input
-            className="form__input"
+            className="form__inputLinks"
             type="text"
             name="repo"
             id="repo"
@@ -63,10 +63,10 @@ const Form = ({
           />
           <p className="form__error-msg"></p>
           <label className="form__label" htmlFor="demo">
-            Demo *
+            Demo<span className="span"> *</span>
           </label>
           <input
-            className="form__input"
+            className="form__inputLinks"
             type="text"
             placeholder="http://beta.adalab.es/project-promo-s-module-3-team-1/"
             name="demo"
@@ -79,12 +79,12 @@ const Form = ({
           <p className="form__error-msg"></p>
         </div>
         <label className="form__label" htmlFor="technologies">
-          Tecnologías *
+          Tecnologías<span className="span"> *</span>
         </label>
         <input
           className="form__input"
           type="text"
-          placeholder="Reackt - JS - MongoDB"
+          placeholder="Ej: Reackt - JS - MongoDB"
           name="technologies"
           id="technologies"
           value={data.technologies}
@@ -94,10 +94,10 @@ const Form = ({
         <p className="form__error-msg"></p>
 
         <label className="form__label" htmlFor="desc">
-          Descripción *
+          Descripción<span className="span"> *</span>
         </label>
         <textarea
-          className="form__input--textarea"
+          className="form__textarea"
           type="text"
           placeholder="Ej: Consigue tus propios diseños exclusivos con tan
 sólo un par de clicks."
@@ -115,7 +115,7 @@ sólo un par de clicks."
 
       <fieldset className="form__autor">
         <label className="form__label" htmlFor="autor">
-          Nombre autora *
+          Nombre autora<span className="span"> *</span>
         </label>
         <input
           className="form__input"
@@ -130,7 +130,7 @@ sólo un par de clicks."
         />
         <p className="form__error-msg"></p>
         <label className="form__label" htmlFor="autor">
-          Puesto de trabajo *
+          Puesto de trabajo<span className="span"> *</span>
         </label>
         <input
           className="form__input"
@@ -167,7 +167,9 @@ sólo un par de clicks."
       <section className="form__create-card">
         <p className={isCard ? "linkCard" : "hidden"}>
           {" "}
-          {isError ? `La tarjeta ha sido creada:` : "Faltan datos por rellenar"}
+          {isError
+            ? `La tarjeta ha sido creada:`
+            : "❌ Faltan datos por rellenar"}
         </p>
         <a href={url} className="" target="_blank" rel="noreferrer">
           {url}

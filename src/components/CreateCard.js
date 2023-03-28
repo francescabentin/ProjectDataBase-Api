@@ -1,6 +1,6 @@
 import ImgCard from "../components/Preview/ImgCard";
 import Card from "../components/Preview/Card";
-import Form from "./Form";
+import Form from "./form";
 import cover from "../images/cover.jpeg";
 import user from "../images/user.jpeg";
 import { useState } from "react";
@@ -76,12 +76,12 @@ const CreateCard = () => {
       setIsCard(true);
       if (info.success) {
         setIsError(true);
+        savedCards.push(data);
+        ls.set("cards", savedCards);
       } else {
         setIsError(false);
       }
     });
-    savedCards.push(data);
-    ls.set("cards", savedCards);
   };
   return (
     <main className="main">

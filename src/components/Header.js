@@ -1,4 +1,4 @@
-import logo from "../images/logo-adalab.png";
+//import logo from "../images/logo-adalab.png";
 import boca from "../images/boca2.png"
 import nombre from "../images/nombre2.png"
 const Header = () => {

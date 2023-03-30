@@ -22,23 +22,26 @@ const Landing =()=>{
     }
   }
     return (
-    <main className='landingPage'>
-      <h1 className='landingPage__title'>Proyectos Canelo</h1>
-      <h2 className='landingPage__subtitle'>Escaparate en línea para recoger ideas a través de la tecnología</h2>
-      
-      <section className='landingPage__btns'>
-      <Link to="/CreateCard">
-      <button className='landingPage__btn'>NUEVO PROYECTO</button>
-      </Link>
-      <button className='landingPage__btn'>VER PROYECTOS</button>  
-      </section>
+      <main className="landingPage">
+        <h1 className="landingPage__title">Proyectos Canelo</h1>
+        <h2 className="landingPage__subtitle">
+          Escaparate en línea para recoger ideas a través de la tecnología
+        </h2>
 
-      <section className="landingPage__projects-list">
-        {renderCards()}
-      </section>
+        <section className="landingPage__btns">
+          <Link to="/CreateCard">
+            <button className="landingPage__btn">NUEVO PROYECTO</button>
+          </Link>
+          <Link to="/Details">
+            <button className="landingPage__btn">VER PROYECTOS</button>{" "}
+          </Link>
+        </section>
 
-    </main>
-    )
+        <section className="landingPage__projects-list">
+          {renderCards()}
+        </section>
+      </main>
+    );
 }
 
 export default Landing;

@@ -3,14 +3,27 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import CreateCard from "./CreateCard";
 import Landing from "./Landing";
+import Details from "./Details";
 
-function App() {
+function App({data, defaultAvatar}) {
   return (
     <div className="container">
       <Header />
       <Routes>
-        <Route path="/" element={<Landing />}></Route>
-        <Route path="/CreateCard" element={<CreateCard />}></Route>
+        <Route
+          path="/Details"
+          element={<Details data={data} defaultAvatar={defaultAvatar} />}
+        >
+          {" "}
+        </Route>
+        <Route
+          path="/"
+          element={<Landing data={data} defaultAvatar={defaultAvatar} />}
+        ></Route>
+        <Route
+          path="/CreateCard"
+          element={<CreateCard data={data} defaultAvatar={defaultAvatar} />}
+        ></Route>
       </Routes>
     </div>
   );

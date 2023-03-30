@@ -1,5 +1,3 @@
-/* import iconweb from '../../images/iconoweb.png';
-import icongithub from '../../images/iconogithub.png'; */
 import Profile from '../Profile';
 
 function Card({data, defaultAvatar, className}) {

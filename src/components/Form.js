@@ -149,13 +149,12 @@ sólo un par de clicks."
           <GetAvatar
             value={"Subir foto de proyecto"}
             className={"form__btn"}
-            updateAvatar={updateAvatar}
+            updateAvatar={updateProjectImg}
           />
-
           <GetAvatar
             value={"Subir foto de autora"}
             className={"form__btn"}
-            updateAvatar={updateProjectImg}
+            updateAvatar={updateAvatar}
           />
 
           <button className="form__btn--card" onClick={handleClickCreateCard}>

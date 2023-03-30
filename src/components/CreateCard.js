@@ -76,13 +76,14 @@ const CreateCard = () => {
       setIsCard(true);
       if (info.success) {
         setIsError(true);
+        savedCards.push(data);
+        ls.set("cards", savedCards);
       } else {
         setIsError(false);
       }
     });
-    savedCards.push(data);
-    ls.set("cards", savedCards);
   };
+
   return (
     <main className="main">
       <section className="preview">

@@ -83,6 +83,7 @@ const CreateCard = () => {
       }
     });
   };
+
   return (
     <main className="main">
       <section className="preview">

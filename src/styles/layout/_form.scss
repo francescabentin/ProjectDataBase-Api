@@ -111,7 +111,7 @@
     border: none;
     background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
     border-radius: 4rem;
-
+    cursor: pointer;
     @media (min-width: 768px){
         font-size: 1.8rem;
         width: 18rem;
@@ -136,6 +136,7 @@
     border: none;
     background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
     border-radius: 4rem;
+    cursor: pointer; 
 
      @media (min-width: 1024px){
       height: 4rem;

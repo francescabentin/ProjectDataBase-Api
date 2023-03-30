@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `proyectocanelo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `proyectocanelo`;
+CREATE DATABASE  IF NOT EXISTS `freedb_ProyectoCanelo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `freedb_ProyectoCanelo`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: localhost    Database: proyectocanelo
@@ -83,3 +83,44 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-03-28 13:43:57
+
+ALTER TABLE projects ADD COLUMN fkAutors INT NOT NULL,
+ADD FOREIGN KEY (fkAutors) REFERENCES projects (idProjects);
+SELECT * FROM projects;
+SELECT * FROM autors;
+DESCRIBE projects;
+
+UPDATE projects SET fkAutors = 1
+WHERE idProjects = 1;
+
+UPDATE projects SET fkAutors = 2
+WHERE idProjects = 2;
+
+UPDATE projects SET fkAutors = 3
+WHERE idProjects = 3;
+
+UPDATE projects SET fkAutors = 4
+WHERE idProjects = 4;
+
+SELECT projects.name, 
+projects.descripcion, 
+projects.slogan, 
+projects.repo, 
+projects.demo, 
+projects.technologies, 
+projects.image, 
+autors.autor,
+autors.job,
+autors.image
+FROM projects JOIN autors ON autors.idAutor = projects.fkAutors;
+
+SELECT projects.name, 
+projects.descripcion, 
+projects.slogan, 
+projects.repo, 
+projects.demo, 
+projects.technologies, 
+autors.autor,
+autors.job,
+autors.image
+FROM projects JOIN autors ON autors.idAutor = projects.fkAutors;

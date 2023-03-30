@@ -30,7 +30,7 @@ const Landing =()=>{
       <Link to="/CreateCard">
       <button className='landingPage__btn'>NUEVO PROYECTO</button>
       </Link>
-      <button className='landingPage__btn'>VER PROYECTOS</button>  
+      {/* <button className='landingPage__btn'>VER PROYECTOS</button>   */}
       </section>
 
       <section className="landingPage__projects-list">

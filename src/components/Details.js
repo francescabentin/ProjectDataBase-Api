@@ -1,18 +1,21 @@
+import cover from "../images/cover.jpeg";
+import user from "../images/user.jpeg";
 import Card from "./Preview/Card";
-import Profile from "../Profile";
+import ImgCard from "../components/Preview/ImgCard";
 
-function Details() {
+function Details({ data}) {
   return (
-    <section className="detailsPage">
-        <Profile
-            className={className}
-            defaultAvatar={defaultAvatar}
-            avatar={data.image} />
-        <Card
-          className={"preview__card--autor--img"}
-          data={data}
-          defaultAvatar={user}
-        />
+    <section>
+      <ImgCard
+        className={"preview__cover-img"}
+        data={data}
+        defaultAvatar={cover}
+      />
+      <Card
+        className={"preview__card--autor--img"}
+        data={data}
+        defaultAvatar={user}
+      />
     </section>
   );
 }

@@ -3,26 +3,57 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+
+  @media (min-width: 768px){
+      padding: 5rem;
+    }
+
+    @media (min-width: 1024px){
+      padding: 1rem;
+    } 
+
+  &__logo {
+    width: 35%;
+
+    @media (min-width: 768px){
+      width: 20%;
+    } 
+
+    @media (min-width: 1024px){
+      width: 13%;
+    } 
+  }
 
   &__title {
+    font-family: 'DM Serif Display', serif;
     font-size: 4.5rem;
-    font-weight: bold;
-    color: #ffffff;
+    color: #033631;
     text-align: center;
-    margin: 7rem 0 2rem 0;
+
+    @media (min-width: 768px){
+      font-size: 6rem;
+    } 
   }
 
   &__subtitle {
-    font-size: 1.7rem;
-    color: #ffffff;
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: #70ADA7;
     text-align: center;
+    margin-top: 2rem;
     margin-bottom: 3rem;
+
+    @media (min-width: 768px){
+      font-size: 3rem;
+    }
   }
 
   &__btns{
     display: flex;
     flex-direction: column;
     margin-bottom: 5rem;
+    gap: 2rem;
 
     @media (min-width: 768px){
     flex-direction: row;
@@ -31,14 +62,24 @@
   }
   
   &__btn {
-    width: 16rem;
-    margin-top: 1rem;
-    color: white;
-    text-align: center;
-    border: none;
-    height: 4.3rem;
-    background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
-    border-radius: 4rem;
+    width: 20rem;
+      height: 4.3rem;
+      margin-top: 1rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: white;
+      text-align: center;
+      border: none;
+      background-color: #ec5a46;
+      border-radius: 1rem;
+      grid-column: 1 /3;
+      margin: auto;
+
+      @media (min-width: 768px){
+    width: 25rem;
+      height: 5rem;
+      font-size: 2rem;
+    } 
   }
 
   &__projects-list {

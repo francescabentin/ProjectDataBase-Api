@@ -1,6 +1,6 @@
 import ImgCard from "../components/Preview/ImgCard";
 import Card from "../components/Preview/Card";
-import Form from "./form";
+import Form from "./Form";
 import cover from "../images/cover.jpeg";
 import user from "../images/user.jpeg";
 import { useState } from "react";

@@ -5,6 +5,8 @@ import ImgCard from "../components/Preview/ImgCard";
 
 function Details({ data}) {
   return (
+    <p>hola</p>
+    /*
     <section>
       <ImgCard
         className={"preview__cover-img"}
@@ -16,7 +18,7 @@ function Details({ data}) {
         data={data}
         defaultAvatar={user}
       />
-    </section>
+    </section>*/
   );
 }
 

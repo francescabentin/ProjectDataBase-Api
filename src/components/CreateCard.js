@@ -25,6 +25,19 @@ const CreateCard = () => {
     })
   );
 
+  const defaultCard = {
+    name: "",
+    slogan: "",
+    repo: "",
+    demo: "",
+    technologies: "",
+    desc: "",
+    autor: "",
+    job: "",
+    image: "",
+    photo: "",
+  }
+
   const savedCards = ls.get("cards") || [];
 
   const [isCard, setIsCard] = useState(false);
@@ -161,6 +174,15 @@ const CreateCard = () => {
     });
   };
 
+  const handleResetEvent = (ev) => {
+    ev.preventDefault();
+    console.log('hola');
+    setData(defaultCard);
+    ls.remove('cards');
+    setIsCard(false);
+    setUrl('');
+  }
+
   return (
     <main className="main">
       <section className="preview">
@@ -186,9 +208,9 @@ const CreateCard = () => {
         isError={isError}
         updateAvatar={updateAvatar}
         updateProjectImg={updateProjectImg}
-        message={message}
       />
     </main>
+
   );
 };
 

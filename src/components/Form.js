@@ -9,6 +9,7 @@ const Form = ({
   isError,
   updateAvatar,
   updateProjectImg,
+  handleResetEvent
   message
 }) => {
   return (
@@ -163,6 +164,7 @@ const Form = ({
           {url}
         </a>
       </section>
+      <button onClick={handleResetEvent}>RESET</button>
     </section>
   );
 };

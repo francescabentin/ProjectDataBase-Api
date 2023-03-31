@@ -17,11 +17,15 @@ function includes(variable) {
 function notIncludes(variable) {
   return localStorage.getItem(variable) === null;
 }
+
+function remove(key) {
+  localStorage.removeItem(key);
+}
 /*
 function hidden() {
   
 }
 */
-const ls = { get, set, includes, notIncludes };
+const ls = { get, set, includes, notIncludes, remove };
 
 export default ls;

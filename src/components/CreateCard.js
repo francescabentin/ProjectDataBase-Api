@@ -29,6 +29,7 @@ const CreateCard = () => {
 
   const [isCard, setIsCard] = useState(false);
   const [isError, setIsError] = useState(false);
+  const[message,setMessage]=useState({})
 
   const updateAvatar = (avatar) => {
     setData({ ...data, photo: avatar });
@@ -46,11 +47,42 @@ const CreateCard = () => {
       /^((https?|ftp|file):\/\/)?([\da-z.-]+).([a-z.]{2,6})([/\w .-]*)*\/?$/;
     if (inputName === "name") {
       setData({ ...data, name: inputValue });
+      if (inputValue === '') {
+        setMessage({
+        ...message,
+        [inputName]: `Rellena este campo`,
+      });
+      } else{
+         setMessage({
+        ...message,
+        [inputName]: ``,
+      });
+      }
     } else if (inputName === "slogan") {
       setData({ ...data, slogan: inputValue });
+      if (inputValue === '') {
+        setMessage({
+        ...message,
+        [inputName]: `Rellena este campo`,
+      }); 
+      } else{
+         setMessage({
+        ...message,
+        [inputName]: ``,
+      });
+      }
     } else if (inputName === "repo") {
       setData({ ...data, repo: inputValue });
       if (!linkValidation.test(inputValue)) {
+        setMessage({
+        ...message,
+        [inputName]: `Rellena este campo con un enlace HTTP: o HTTPS:`,
+      });
+      } else{
+         setMessage({
+        ...message,
+        [inputName]: ``,
+      });
       }
     } else if (inputName === "demo") {
       setData({ ...data, demo: inputValue });
@@ -58,14 +90,59 @@ const CreateCard = () => {
       }
     } else if (inputName === "technologies") {
       setData({ ...data, technologies: inputValue });
+      if (inputValue === '') {
+        setMessage({
+        ...message,
+        [inputName]: `Rellena este campo`,
+      });
+      } else{
+         setMessage({
+        ...message,
+        [inputName]: ``,
+      });
+      }
     } else if (inputName === "desc") {
       setData({ ...data, desc: inputValue });
+      if (inputValue === '') {
+         setMessage({
+        ...message,
+        [inputName]: `Rellena este campo`,
+      });
+      } else{
+         setMessage({
+        ...message,
+        [inputName]: ``,
+      });
+      }
     } else if (inputName === "autor" && textValidation.test(inputValue)) {
       setData({ ...data, autor: inputValue });
+      if (inputValue === '') {
+        setMessage({
+        ...message,
+        [inputName]: `Rellena este campo`,
+      });
+      } else{
+         setMessage({
+        ...message,
+        [inputName]: ``,
+      });
+      }
     } else if (inputName === "job" && textValidation.test(inputValue)) {
       setData({ ...data, job: inputValue });
+      if (inputValue === '') {
+        setMessage({
+        ...message,
+        [inputName]: `Rellena este campo`,
+      });
+      } else{
+         setMessage({
+        ...message,
+        [inputName]: ``,
+      });
+      }
     }
   };
+
 
   const handleClickCreateCard = (ev) => {
     ev.preventDefault();
@@ -109,9 +186,12 @@ const CreateCard = () => {
         isError={isError}
         updateAvatar={updateAvatar}
         updateProjectImg={updateProjectImg}
+        message={message}
       />
     </main>
   );
 };
 
 export default CreateCard;
+
+

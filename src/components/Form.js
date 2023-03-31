@@ -9,6 +9,7 @@ const Form = ({
   isError,
   updateAvatar,
   updateProjectImg,
+  message
 }) => {
   return (
     <section className="form">
@@ -27,6 +28,10 @@ const Form = ({
           onInput={handleInput}
           required
         />
+        <p>
+        {" "}
+        {message.name}
+        </p>
         <input
           className="form__input"
           type="text"
@@ -37,6 +42,10 @@ const Form = ({
           onChange={handleInput}
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
+        <p>
+        {" "}
+        {message.slogan}
+        </p>
         <div className="form__project--links">
           <input
             className="form__input"
@@ -48,6 +57,10 @@ const Form = ({
             onInput={handleInput}
             required
           />
+          <p>
+          {" "}
+          {message.repo}
+          </p>
           <input
             className="form__input"
             type="text"
@@ -70,6 +83,10 @@ const Form = ({
           onChange={handleInput}
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
+        <p>
+        {" "}
+        {message.technologies}
+        </p>
         <textarea
           className="form__input--textarea"
           type="text"
@@ -80,6 +97,10 @@ const Form = ({
           onChange={handleInput}
           required
         ></textarea>
+        <p>
+        {" "}
+        {message.desc}
+        </p>
       </fieldset>
 
       <p className="form__subtitle">Cuéntanos sobre la autora</p>
@@ -97,6 +118,10 @@ const Form = ({
           required
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
+        <p>
+        {" "}
+        {message.autor}
+        </p>
         <input
           className="form__input"
           type="text"
@@ -108,7 +133,10 @@ const Form = ({
           required
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
-
+        <p>
+        {" "}
+        {message.job}
+        </p>
         <section className="form__autor--buttons">
           <GetAvatar
             value={"Subir foto de proyecto"}

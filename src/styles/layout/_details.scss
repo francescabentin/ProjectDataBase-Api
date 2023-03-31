@@ -1,27 +1,18 @@
-.preview {
-  @media (min-width: 768px) {
-    width: 60%;
-  }
+.detailsPage {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @media (min-width: 1024px) {
-    width: 60%;
-  }
-
-  &__cover-img {
+  &__cover {
     object-fit: cover;
     width: 100%;
-    height: 80%;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border-radius: 2rem;
 
-    @media (min-width: 768px) {
-      object-fit: cover;
-      width: 100%;
-      height: 70%;
-    }
-
     @media (min-width: 1024px) {
-      height: 100%;
+      width: 70%;
     }
   }
 
@@ -221,18 +212,6 @@
         }
       }
     }
-  }
 
-  &__card-position {
-    transform: translateY(-40px);
-
-    @media (min-width: 768px) {
-      transform: translateY(-50px);
-    }
-
-    @media (min-width: 1024px) {
-      transform: translateY(-120px);
-    }
   }
 }
-

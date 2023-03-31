@@ -4,6 +4,7 @@ import user from '../images/user.jpeg';
 import Card from './Preview/Card';
 import '../styles/layout/_preview.scss'
 import '../styles/layout/_landing.scss'
+import canelo from "../images/canelo_logo.svg";
 
 const Landing =()=>{
   const savedCards = ls.get('cards');
@@ -23,6 +24,7 @@ const Landing =()=>{
   }
     return (
       <main className="landingPage">
+        <img className="landingPage__logo" src={canelo} alt="Logo Proyectos Canelo"></img>
         <h1 className="landingPage__title">Proyectos Canelo</h1>
         <h2 className="landingPage__subtitle">
           Escaparate en línea para recoger ideas a través de la tecnología

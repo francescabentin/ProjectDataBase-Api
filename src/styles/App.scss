@@ -4,9 +4,10 @@
 @import "./layout/header";
 @import "./layout/main";
 @import "./layout/preview";
+@import "./layout/details";
 
 .body {
-    background-color: #302c42;
+    background-color: $sand-color;
     height: 100vh;
     padding: 20px;
 
@@ -17,9 +18,4 @@
 
 .hidden {
     display: none;
-}
-
-.linkCard {
-    text-decoration: none;
-    color: #C0B7E8;
 }

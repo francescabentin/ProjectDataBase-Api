@@ -102,6 +102,15 @@ const CreateCard = () => {
     } else if (inputName === "demo") {
       setData({ ...data, demo: inputValue });
       if (!linkValidation.test(inputValue)) {
+        setMessage({
+          ...message,
+          [inputName]: `Rellena este campo con un enlace HTTP: o HTTPS:`,
+        });
+      } else {
+        setMessage({
+          ...message,
+          [inputName]: ``,
+        });
       }
     } else if (inputName === "technologies") {
       setData({ ...data, technologies: inputValue });

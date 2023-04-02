@@ -16,7 +16,6 @@ const Form = ({
     <section className="form">
       <h2 className="form__title">Información</h2>
       <p className="form__subtitle">Cuéntanos sobre el proyecto</p>
-      {/*   <hr className="form__line" /> */}
 
       <fieldset className="form__project">
         <label className="form__label" htmlFor="name">
@@ -32,7 +31,7 @@ const Form = ({
           onInput={handleInput}
           required
         />
-        <p>
+        <p className="form__message">
         {" "}
         {message.name}
         </p>
@@ -46,7 +45,7 @@ const Form = ({
           onChange={handleInput}
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
-        <p>
+        <p className="form__message">
         {" "}
         {message.slogan}
         </p>
@@ -64,10 +63,13 @@ const Form = ({
             onInput={handleInput}
             required
           />
-          <p>
+          <p className="form__message">
           {" "}
           {message.repo}
           </p>
+          <label className="form__label" htmlFor="demo">
+            Demo<span className="span"> *</span>
+          </label>
           <input
             className="form__inputLinks"
             type="text"
@@ -79,7 +81,10 @@ const Form = ({
             required
             pattern="/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/"
           />
-          <p className="form__error-msg"></p>
+          <p className="form__message">
+        {" "}
+        {message.demo}
+        </p>
         </div>
         <label className="form__label" htmlFor="technologies">
           Tecnologías<span className="span"> *</span>
@@ -94,9 +99,9 @@ const Form = ({
           onChange={handleInput}
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
-        <p>
+        <p className="form__message">
         {" "}
-        {message.technologies}
+        {message.slogan}
         </p>
         <textarea
           className="form__textarea"
@@ -109,9 +114,9 @@ sólo un par de clicks."
           onChange={handleInput}
           required
         ></textarea>
-        <p>
+        <p className="form__message">
         {" "}
-        {message.desc}
+        {message.slogan}
         </p>
       </fieldset>
 
@@ -133,9 +138,9 @@ sólo un par de clicks."
           required
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
-        <p>
+        <p className="form__message">
         {" "}
-        {message.autor}
+        {message.slogan}
         </p>
         <input
           className="form__input"
@@ -148,9 +153,9 @@ sólo un par de clicks."
           required
           pattern="/^[A - ZÁ - üñÑ]+$/i"
         />
-        <p>
+        <p className="form__message">
         {" "}
-        {message.job}
+        {message.slogan}
         </p>
         <section className="form__autor--buttons">
           <GetAvatar
@@ -180,8 +185,8 @@ sólo un par de clicks."
         <a href={url} className="" target="_blank" rel="noreferrer">
           {url}
         </a>
+        <button className="form__btn--reset" onClick={handleResetEvent}> <i class="fa-regular fa-trash-can"></i> Reset</button>
       </section>
-      <button onClick={handleResetEvent}>RESET</button>
     </section>
   );
 };

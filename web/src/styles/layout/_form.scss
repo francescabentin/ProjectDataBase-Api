@@ -3,6 +3,7 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
   padding: 2.5rem;
+  width: 70vw;
   height: 100%;
   font-family: "Inter", sans-serif;
   display: flex;
@@ -11,11 +12,12 @@
   border: none;
 
   @media (min-width: 768px) {
-    width: 40%;
+    width: 40vw;
   }
 
   @media (min-width: 1024px) {
     height: 220%;
+    
   }
 
   &__title {
@@ -56,7 +58,7 @@
   &__textarea,
   &__inputLinks {
     padding-left: 1rem;
-    width: 27rem;
+    width: 95%;
     height: 4.5rem;
     background-color: #f4f1eb;
     border: none;
@@ -67,7 +69,7 @@
 
     @media (min-width: 1024px) {
       font-size: 1.8rem;
-      width: 70rem;
+      width: 97%;
     }
   }
 
@@ -80,11 +82,10 @@
   &__inputLinks {
     margin-top: 0.5rem;
     margin-bottom: 1.2rem;
-    width: 12rem;
+    width: 100%;
 
     @media (min-width: 1024px) {
       font-size: 1.8rem;
-      width: 32rem;
     }
   }
 
@@ -178,7 +179,7 @@
       width: 101%;
       display: grid;
       grid-template-columns: 44% 44%;
-      grid-template-rows: 30% 30%;
+      grid-template-rows: 30% 30% 30%;
       column-gap: 2rem;
 
       @media (min-width: 1024px) {

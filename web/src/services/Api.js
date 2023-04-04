@@ -11,7 +11,7 @@ const dataApiBD = (data) => {
 
 
 const dataApi = (data) => {
-    return (fetch("https://dev.adalab.es/api/projectCard",
+    return (fetch("http://localhost:4000/projects/add",
         {
             method: "POST",
             body: JSON.stringify(data),
@@ -19,7 +19,7 @@ const dataApi = (data) => {
         }).then(response => response.json())
         .then(data => {
             console.log(data);
-            return data;
+            return data.cardURL;
         })
     )
 }

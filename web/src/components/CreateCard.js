@@ -4,7 +4,7 @@ import Form from "./Form";
 import cover from "../images/cover.jpeg";
 import user from "../images/user.jpeg";
 import { useState } from "react";
-import dataApi from "../services/Api.js";
+import api from "../services/Api.js";
 import "../styles/App.scss";
 import ls from "../services/LocalStorage";
 
@@ -171,7 +171,7 @@ const CreateCard = () => {
   const handleClickCreateCard = (ev) => {
     ev.preventDefault();
     console.log(data);
-    dataApi(data).then((info) => {
+    api.dataApi(data).then((info) => {
       console.log(info);
       setUrl(info.cardURL);
       setIsCard(true);

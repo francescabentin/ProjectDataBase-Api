@@ -2,12 +2,14 @@
 const mysql = require('mysql2/promise');
 const cors = require('cors');
 const express = require('express');
+
 // configurar servidor
 const app = express();
 app.use(cors());
 
 // limite de tamano de archivos
-app.use(express.json({ limit: "25mb" }));
+app.use(express.json({ limit: "150mb" }));
+app.set("view engine", "ejs");
 
 let connection;  // Aquí almacenaremos la conexión a la base de datos
 
@@ -83,3 +85,19 @@ app.post('/projects/add', (req, res) => {
     });
 });
 
+// Endpoint details
+
+app.get('/projects/details/:projectID' , (req, res) => { 
+    const projectId = req.params.projectID;
+    const sql = "SELECT  * FROM projects, autors WHERE projects.idautor_fk=autors.idautors idprojects=?"
+    
+    connection
+    .query(sql, [projectId])
+    .then(([results, fields]) => {
+       res.render("project_detail", results[0]);
+    })
+   .catch((err) => {
+   throw err;
+   });
+   
+   });

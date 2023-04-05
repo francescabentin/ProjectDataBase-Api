@@ -176,11 +176,9 @@ const CreateCard = () => {
       setUrl(info.cardURL);
       setIsCard(true);
       if (info.success) {
-        setIsError(true);
-        savedCards.push(data);
-        ls.set("cards", savedCards);
-      } else {
         setIsError(false);
+      } else {
+        setIsError(true);
       }
     });
   };

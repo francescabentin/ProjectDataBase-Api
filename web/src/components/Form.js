@@ -5,7 +5,6 @@ const Form = ({
   handleInput,
   url,
   handleClickCreateCard,
-  isCard,
   isError,
   updateAvatar,
   updateProjectImg,
@@ -176,11 +175,8 @@ sólo un par de clicks."
       </fieldset>
 
       <section className="form__create-card">
-        <p className={isCard ? "linkCard" : "hidden"}>
-          {" "}
-          {isError
-            ? `La tarjeta ha sido creada:`
-            : "❌ Faltan datos por rellenar"}
+        <p className>
+          {isError}
         </p>
         <a href={url} className="" target="_blank" rel="noreferrer">
           {url}

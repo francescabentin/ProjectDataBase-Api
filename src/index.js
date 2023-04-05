@@ -59,6 +59,60 @@ app.get('/projects/all', (req, res) => {
 app.post('/projects/add', (req, res) => {
     const data = req.body;
     console.log("Esto es", data);
+    if (data.name === '') {
+        res.json({
+            success: false,
+            error: 'El campo nombre debe estar completo'
+        })
+    } else if (data.slogan === '') {
+        res.json({
+            success: false,
+            error: 'El campo slogan debe estar completo'
+        })
+    } else if (data.demo === '') {
+        res.json({
+            success: false,
+            error: 'Completa el campo con la url de tu demo'
+        })
+    } else if (data.repo === '') {
+        res.json({
+            success: false,
+            error: 'Completa el campo con la url de tu repo'
+        })
+    } else if (data.technologies === '') {
+        res.json({
+            success: false,
+            error: 'Completa las tecnologías del proyecto'
+        })
+    } else if (data.desc === '') {
+        res.json({
+            success: false,
+            error: 'Añade una descripción del proyecto'
+        })
+    } else if (data.image === '') {
+        res.json({
+            success: false,
+            error: 'Añade una imagen del proyecto'
+        })
+    } else if (data.photo === '') {
+        res.json({
+            success: false,
+            error: 'Añade una foto del autor'
+        })
+    } else if (data.autor === '') {
+        res.json({
+            success: false,
+            error: 'Completa el nombre del autor '
+        })
+    } else if (data.job === '') {
+        res.json({
+            success: false,
+            error: 'Indica el trabajo del autor'
+        })
+    }
+
+    else {
+
     let sqlAutor = "INSERT INTO autors (autor, job, image) VALUES (?, ?, ?)"; 
     let valuesAutor = [data.autor, data.job, data.image];
 
@@ -83,6 +137,7 @@ app.post('/projects/add', (req, res) => {
         }).catch((err) => {
         throw err;
     });
+    }
 });
 
 // Endpoint details

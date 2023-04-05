@@ -38,12 +38,7 @@ const CreateCard = () => {
     photo: "",
   }
 
-
-
-  const savedCards = ls.get("cards") || [];
-
-  const [isCard, setIsCard] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState('');
   const [message, setMessage] = useState({})
 
   const updateAvatar = (avatar) => {
@@ -173,12 +168,12 @@ const CreateCard = () => {
     console.log(data);
     api.dataApi(data).then((info) => {
       console.log(info);
-      setUrl(info.cardURL);
-      setIsCard(true);
-      if (info.success) {
-        setIsError(false);
-      } else {
-        setIsError(true);
+      if (info === undefined) {
+        setIsError("❌ Faltan datos por rellenar");
+      }
+      else {
+        setUrl(info.cardURL);
+        setIsError('La tarjeta ha sido creada');
       }
     });
   };
@@ -188,8 +183,8 @@ const CreateCard = () => {
     console.log('hola');
     setData(defaultCard);
     ls.remove('cards');
-    setIsCard(false);
     setUrl('');
+    setIsError('');
   }
 
   return (
@@ -213,7 +208,6 @@ const CreateCard = () => {
         handleInput={handleInput}
         handleClickCreateCard={handleClickCreateCard}
         url={url}
-        isCard={isCard}
         isError={isError}
         updateAvatar={updateAvatar}
         updateProjectImg={updateProjectImg}

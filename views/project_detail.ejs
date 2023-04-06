@@ -1,54 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/main.css">
+  <title>Proyectos Canelo</title>
 </head>
+
 <body>
-    <section class="detailsPage">
-        <img
-          class="detailsPage__cover"
-          src="/static/media/cover.e291a311e8829543f486.jpeg"
-          alt=""
-        />
-        <section class="detailsPage__card">
-          <section class="detailsPage__card--info">
-            <div class="detailsPage__card--info--intro">
-              <p class="detailsPage__card--info--subtitle">Personal Project Card</p>
-              <hr class="detailsPage__card--info--line" />
-            </div>
-            <h2 class="detailsPage__card--info--title">Elegant Workspace</h2>
-            <p class="detailsPage__card--info--slogan">Diseños Exclusivos</p>
-            <p class="detailsPage__card--info--desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus
-              commodo tellus lectus lobortis.
-            </p>
-            <section class="detailsPage__card--info--technologies">
-              <p class="text">React - JS - MongoDB</p>
-            </section>
-            <div class="detailsPage__card--info--icons">
-              <a href="#" target="_blank" rel="noreferrer"
-                ><i
-                  class="detailsPage__card--info--icons--i fa-brands fa-github"
-                ></i></a
-              ><a href="#" target="_blank" rel="noreferrer"
-                ><i class="detailsPage__card--info--icons--i fa-solid fa-globe"></i
-              ></a>
-            </div>
-          </section>
-          <section class="detailsPage__card--autor">
-            <img
-              class="detailsPage__card--autor--img"
-              src="/static/media/user.35f1968a8f670496f370.jpeg"
-              alt=""
-            />
-            <p class="detailsPage__card--autor--job">Full Stack Developer</p>
-            <p class="detailsPage__card--autor--name">Emmelie Björklund</p>
-          </section>
+
+  <section class="detailsPage">
+    <img class="detailsPage__cover" src="/static/media/cover.e291a311e8829543f486.jpeg" alt="" />
+    <section class="detailsPage__card">
+      <section class="detailsPage__card--info">
+        <div class="detailsPage__card--info--intro">
+          <p class="detailsPage__card--info--subtitle">Personal Project Card</p>
+          <hr class="detailsPage__card--info--line" />
+        </div>
+        <h2 class="detailsPage__card--info--title">
+          <%=name%>
+        </h2>
+        <p class="detailsPage__card--info--slogan">
+          <%=slogan%>
+        </p>
+        <p class="detailsPage__card--info--desc">
+          <%=descripcion%>
+        </p>
+        <section class="detailsPage__card--info--technologies">
+          <p class="text">
+            <%=technologies%>
+          </p>
         </section>
+        <div class="detailsPage__card--info--icons">
+          <a href="<%=repo%>" target="_blank" rel="noreferrer"><i
+              class="detailsPage__card--info--icons--i fa-brands fa-github"></i></a><a href="<%=demo%>" target="_blank"
+            rel="noreferrer"><i class="detailsPage__card--info--icons--i fa-solid fa-globe"></i></a>
+        </div>
       </section>
-      
+      <section class="detailsPage__card--autor">
+        <img class="detailsPage__card--autor--img" src="/static/media/user.35f1968a8f670496f370.jpeg" alt="" />
+        <p class="detailsPage__card--autor--job">
+          <%=job%>
+        </p>
+        <p class="detailsPage__card--autor--name">
+          <%=autor%>
+        </p>
+      </section>
+    </section>
+  </section>
+
 </body>
+
 </html>

@@ -142,9 +142,9 @@ app.post('/projects/add', (req, res) => {
 
 // Endpoint details
 
-app.get('/projects/details/:projectID' , (req, res) => { 
+app.get("/projects/details/:projectID", (req, res) => { 
     const projectId = req.params.projectID;
-    const sql = "SELECT  * FROM projects, autors WHERE projects.idautor_fk=autors.idautors idprojects=?"
+    const sql = "SELECT * FROM projects, autors WHERE projects.fkAutors=autors.idAutor AND idProjects=?"
     
     connection
     .query(sql, [projectId])
@@ -156,3 +156,9 @@ app.get('/projects/details/:projectID' , (req, res) => {
    });
    
    });
+
+   
+   //Servidor de estáticos ( Todo para ti LAU! )
+
+   app.use(express.static('./src/public-react'));
+   app.use(express.static('./src/public-css/'));

@@ -11,6 +11,7 @@ const Form = ({
   handleResetEvent,
   message
 }) => {
+  console.log(url);
   return (
     <section className="form">
       <h2 className="form__title">Información</h2>

@@ -172,7 +172,7 @@ const CreateCard = () => {
         setIsError("❌ Faltan datos por rellenar");
       }
       else {
-        setUrl(info.cardURL);
+        setUrl(info);
         setIsError('La tarjeta ha sido creada');
       }
     });

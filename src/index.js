@@ -45,7 +45,7 @@ app.listen(port, () => {
 
 app.get('/projects/all', (req, res) => {
     console.log('Pidiendo a la base de datos información de los users.');
-    const sql = ("SELECT projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.image FROM projects JOIN autors ON autors.idAutor = projects.fkAutors")
+    const sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.image FROM projects JOIN autors ON autors.idAutor = projects.fkAutors")
     connection
         .query(sql)
         .then(([results, fields]) => {
@@ -142,7 +142,7 @@ app.post('/projects/add', (req, res) => {
 
 // Endpoint details
 
-app.get("/projects/details/:projectID", (req, res) => { 
+app.get("/projects/:projectID", (req, res) => { 
     const projectId = req.params.projectID;
     const sql = "SELECT * FROM projects, autors WHERE projects.fkAutors=autors.idAutor AND idProjects=?"
     

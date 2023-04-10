@@ -15,13 +15,14 @@ const Landing = () => {
     api.dataApiBD()
       .then(data => {
         setAllCards(data);
+        console.log(data);
       })
   }, []);
 
   const renderCards = () => {
     return allCards.map((data) => {
       return (
-        <a href={`http://localhost:4000/api/projects/details/${data.idProjects}`}> <Card
+        <a href={`http://localhost:4000/projects/${data.idProjects}`}> <Card
           className={"preview__card--autor--img"}
           data={data}
           defaultAvatar={user}

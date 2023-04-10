@@ -167,7 +167,7 @@ const CreateCard = () => {
     ev.preventDefault();
     console.log(data);
     api.dataApi(data).then((info) => {
-      console.log(info);
+      console.log(info);// info es igual a data.cardURL
       if (info === undefined) {
         setIsError("❌ Faltan datos por rellenar");
       }
@@ -180,7 +180,7 @@ const CreateCard = () => {
 
   const handleResetEvent = (ev) => {
     ev.preventDefault();
-    console.log('hola');
+    console.log('reset');
     setData(defaultCard);
     ls.remove('cards');
     setUrl('');

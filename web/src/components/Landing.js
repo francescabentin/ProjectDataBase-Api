@@ -13,19 +13,19 @@ const Landing = () => {
 
   useEffect(() => {
     api.dataApiBD()
-      .then(cleanData => {
-        setAllCards(cleanData)
+      .then(data => {
+        setAllCards(data);
       })
   }, []);
 
   const renderCards = () => {
     return allCards.map((data) => {
       return (
-        <Card
+        <a href={`http://localhost:4000/api/projects/details/${data.idProjects}`}> <Card
           className={"preview__card--autor--img"}
           data={data}
           defaultAvatar={user}
-        />
+        /> </a>
       )
     })
   }

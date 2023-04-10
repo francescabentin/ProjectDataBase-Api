@@ -149,16 +149,16 @@ app.get("/projects/details/:projectID", (req, res) => {
     connection
     .query(sql, [projectId])
     .then(([results, fields]) => {
-       res.render("project_detail", results[0]);
+        console.log(results);
+        res.render("project_detail", results[0]);
     })
    .catch((err) => {
    throw err;
    });
-   
    });
 
    
    //Servidor de estáticos ( Todo para ti LAU! )
 
    app.use(express.static('./src/public-react'));
-   app.use(express.static('./src/public-css/'));
+app.use(express.static('./src/public-css'));

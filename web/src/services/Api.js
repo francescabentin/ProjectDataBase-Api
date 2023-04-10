@@ -3,7 +3,6 @@ const dataApiBD = (data) => {
     return (fetch("http://localhost:4000/projects/all",)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             return data;
         })
     )

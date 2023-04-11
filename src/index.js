@@ -45,7 +45,7 @@ app.listen(port, () => {
 
 app.get('/projects/all', (req, res) => {
     console.log('Pidiendo a la base de datos información de los users.');
-    const sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.image FROM projects JOIN autors ON autors.idAutor = projects.fkAutors")
+    const sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.photo FROM projects JOIN autors ON autors.idAutor = projects.fkAutors")
     connection
         .query(sql)
         .then(([results, fields]) => {
@@ -113,8 +113,8 @@ app.post('/projects/add', (req, res) => {
 
     else {
 
-    let sqlAutor = "INSERT INTO autors (autor, job, image) VALUES (?, ?, ?)"; 
-    let valuesAutor = [data.autor, data.job, data.image];
+        let sqlAutor = "INSERT INTO autors (autor, job, photo) VALUES (?, ?, ?)";
+        let valuesAutor = [data.autor, data.job, data.photo];
 
     connection
     .query(sqlAutor, valuesAutor)
@@ -160,5 +160,13 @@ app.get("/projects/:projectID", (req, res) => {
    
    //Servidor de estáticos ( Todo para ti LAU! )
 
-   app.use(express.static('./src/public-react'));
+app.use(express.static('./src/public-react'));
 app.use(express.static('./src/public-css'));
+
+app.get('*', (req, res) => {
+    res.send('Error 404');
+
+    //const absolutePathToError404 = path.join(__dirname, '..web/public/index.html');
+
+    //res.status(404).sendFile(absolutePathToError404);
+})

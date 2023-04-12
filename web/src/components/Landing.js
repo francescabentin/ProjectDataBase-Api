@@ -19,10 +19,11 @@ const Landing = () => {
       })
   }, []);
 
+
   const renderCards = () => {
     return allCards.map((data) => {
       return (
-        <a href={`https://proyecto-canelo.onrender.com/${data.idProjects}`} className="card-links"> <Card
+        <a href={`https://proyecto-canelo.onrender.com/projects/${data.idProjects}`} className="card-links"> <Card
           className={"preview__card--autor--img"}
           data={data}
           defaultAvatar={user}

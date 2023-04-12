@@ -22,7 +22,7 @@ const Landing = () => {
   const renderCards = () => {
     return allCards.map((data) => {
       return (
-        <a href={`http://localhost:4000/projects/${data.idProjects}`}> <Card
+        <a href={`http://localhost:4000/projects/${data.idProjects}`} className="card-links"> <Card
           className={"preview__card--autor--img"}
           data={data}
           defaultAvatar={user}
@@ -41,9 +41,6 @@ const Landing = () => {
       <section className="landingPage__btns">
         <Link to="/CreateCard">
           <button className="landingPage__btn">NUEVO PROYECTO</button>
-        </Link>
-        <Link to="/Details">
-          <button className="landingPage__btn">VER PROYECTOS</button>{" "}
         </Link>
       </section>
 

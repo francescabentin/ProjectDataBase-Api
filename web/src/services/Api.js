@@ -1,8 +1,8 @@
-const render = "https://proyecto-canelo.onrender.com/"
+const render = "https://proyecto-canelo.onrender.com"
 /* const render = "//localhost:4000/" */
 
 const dataApiBD = (data) => {
-    return (fetch(`${render}projects/all`)
+    return (fetch(`${render}/projects/all`)
         .then(response => response.json())
         .then(data => {
             return data;
@@ -12,7 +12,7 @@ const dataApiBD = (data) => {
 
 
 const dataApi = (data) => {
-    return (fetch(`${render}projects/add`,
+    return (fetch(`${render}/projects/add`,
         {
             method: "POST",
             body: JSON.stringify(data),

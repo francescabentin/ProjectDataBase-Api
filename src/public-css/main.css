@@ -467,14 +467,14 @@ html {
   }
 }
 
-.body {
+body {
   background-color: #e4e0db;
   height: 100vh;
   padding: 20px;
 }
 
 @media (min-width: 1024px) {
-  .body {
+  body {
     padding: 40px;
   }
 }

@@ -38,9 +38,9 @@ mysql
 
 
 // escuchar el servidor
-const port = process.env.PORT || 4000;
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+const serverPort = process.env.PORT || 4000;
+app.listen(serverPort, () => {
+    console.log(`Example app listening on port ${serverPort}`);
 });
 
 app.get('/projects/all', (req, res) => {

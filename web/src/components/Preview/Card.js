@@ -16,7 +16,7 @@ function Card({data, defaultAvatar, className}) {
         </p>
         <p className="preview__card--info--desc">
           {" "}
-          {data.desc ||
+          {data.descripcion ||
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet faucibus commodo tellus lectus lobortis."}
         </p>
         <section className="preview__card--info--technologies">

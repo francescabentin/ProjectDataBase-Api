@@ -162,6 +162,7 @@ app.get("/projects/:projectID", (req, res) => {
 
 app.use(express.static('./src/public-react'));
 app.use(express.static('./src/public-css'));
+app.use(express.static('./src/public-images'));
 
 app.get('*', (req, res) => {
     res.send('Error 404');

@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/main.css" />
+    <title>Proyectos Canelo</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/main.css">
-  <title>Proyectos Canelo</title>
-</head>
+  <header class="header">
+    <a class="header__logo" href="#/"
+      ><img
+        src="./static/media/Equipo_palique.86d058acde7541ddb9f0a2d1c47b9eb7.svg"
+        alt="" /></a
+    ><a class="header__team" href="#/"><p>Equipo Palique</p></a>
+  </header>
 
-<body>
-
-  <section class="detailsPage">
-    <img class="detailsPage__cover" src="<%=image%>" alt="" />
-    <section class="detailsPage__card">
-      <section class="detailsPage__card--info">
-        <div class="detailsPage__card--info--intro">
-          <p class="detailsPage__card--info--subtitle">Personal Project Card</p>
-          <hr class="detailsPage__card--info--line" />
-        </div>
-        <h2 class="detailsPage__card--info--title">
-          <%=name%>
-        </h2>
-        <p class="detailsPage__card--info--slogan">
-          <%=slogan%>
-        </p>
-        <p class="detailsPage__card--info--desc">
-          <%=descripcion%>
-        </p>
-        <section class="detailsPage__card--info--technologies">
-          <p class="text">
-            <%=technologies%>
-          </p>
+  <body>
+    <section class="detailsPage">
+      <img class="detailsPage__cover" src="<%=image%>" alt="" />
+      <section class="detailsPage__card">
+        <section class="detailsPage__card--info">
+          <div class="detailsPage__card--info--intro">
+            <p class="detailsPage__card--info--subtitle">
+              Personal Project Card
+            </p>
+            <hr class="detailsPage__card--info--line" />
+          </div>
+          <h2 class="detailsPage__card--info--title"><%=name%></h2>
+          <p class="detailsPage__card--info--slogan"><%=slogan%></p>
+          <p class="detailsPage__card--info--desc"><%=descripcion%></p>
+          <section class="detailsPage__card--info--technologies">
+            <p class="text"><%=technologies%></p>
+          </section>
+          <div class="detailsPage__card--info--icons">
+            <a href="<%=repo%>" target="_blank" rel="noreferrer"
+              ><i
+                class="detailsPage__card--info--icons--i fa-brands fa-github"
+              ></i></a
+            ><a href="<%=demo%>" target="_blank" rel="noreferrer"
+              ><i
+                class="detailsPage__card--info--icons--i fa-solid fa-globe"
+              ></i
+            ></a>
+          </div>
         </section>
-        <div class="detailsPage__card--info--icons">
-          <a href="<%=repo%>" target="_blank" rel="noreferrer"><i
-              class="detailsPage__card--info--icons--i fa-brands fa-github"></i></a><a href="<%=demo%>" target="_blank"
-            rel="noreferrer"><i class="detailsPage__card--info--icons--i fa-solid fa-globe"></i></a>
-        </div>
-      </section>
-      <section class="detailsPage__card--autor">
-        <img class="detailsPage__card--autor--img" src="<%=photo%>" alt="" />
-        <p class="detailsPage__card--autor--job">
-          <%=job%>
-        </p>
-        <p class="detailsPage__card--autor--name">
-          <%=autor%>
-        </p>
+        <section class="detailsPage__card--autor">
+          <img class="detailsPage__card--autor--img" src="<%=photo%>" alt="" />
+          <p class="detailsPage__card--autor--job"><%=job%></p>
+          <p class="detailsPage__card--autor--name"><%=autor%></p>
+        </section>
       </section>
     </section>
-  </section>
-
-</body>
-
+  </body>
 </html>

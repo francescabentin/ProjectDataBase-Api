@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.fb10a597.css",
+    "main.css": "./static/css/main.adf0aa99.css",
     "main.js": "./static/js/main.87685eab.js",
     "static/media/cover.jpeg": "./static/media/cover.e291a311e8829543f486.jpeg",
     "static/media/user.jpeg": "./static/media/user.35f1968a8f670496f370.jpeg",
     "static/media/canelo_logo.svg": "./static/media/canelo_logo.a06c4074891788528c923ad08495a7ae.svg",
     "static/media/Equipo_palique.svg": "./static/media/Equipo_palique.86d058acde7541ddb9f0a2d1c47b9eb7.svg",
     "index.html": "./index.html",
-    "main.fb10a597.css.map": "./static/css/main.fb10a597.css.map",
+    "main.adf0aa99.css.map": "./static/css/main.adf0aa99.css.map",
     "main.87685eab.js.map": "./static/js/main.87685eab.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb10a597.css",
+    "static/css/main.adf0aa99.css",
     "static/js/main.87685eab.js"
   ]
 }

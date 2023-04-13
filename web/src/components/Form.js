@@ -1,4 +1,5 @@
 import GetAvatar from "./GetAvatar";
+import { Link } from "react-router-dom";
 
 const Form = ({
   data,
@@ -14,6 +15,9 @@ const Form = ({
 
   return (
     <section className="form">
+     <Link to="/" className="form__back-btn">
+      <p >⬅ Volver</p>
+      </Link>
       <h2 className="form__title">Información</h2>
       <p className="form__subtitle">Cuéntanos sobre el proyecto</p>
 

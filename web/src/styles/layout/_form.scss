@@ -20,6 +20,22 @@
     max-height: 260%;
   }
 
+  &__back-btn {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 9rem;
+      height: 1.5rem;
+      font-size: 1.6rem;
+      color: #797269;
+      text-align: center;
+      padding: 1rem;
+      border: 2px solid #797269;
+      border-radius: 1rem;
+      cursor: pointer;
+  }
+
   &__title {
     font-size: 3.5rem;
     font-weight: bold;

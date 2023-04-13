@@ -1,9 +1,19 @@
 import cover from "../images/cover.jpeg";
 import user from "../images/user.jpeg";
+import logo from "../images/Equipo_palique.svg"
 
 function Details() {
   return (
     <section className="detailsPage">
+      <header class="header">
+        <a class="header__logo" href="#/">
+          <img src={logo} alt="" />
+        </a>
+          <a class="header__team" href="#/">
+            <p>Equipo Palique</p>
+          </a>
+      </header>
+      
       <img className="detailsPage__cover" src={cover} alt="" />
 
       <section className="detailsPage__card">

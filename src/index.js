@@ -16,9 +16,9 @@ let connection;  // Aquí almacenaremos la conexión a la base de datos
 mysql
     .createConnection({
         host: 'sql.freedb.tech',
-        database: 'freedb_ProyectoCanelo',
-        user: 'freedb_EquipoPalique',
-        password: 'W98Gbzz$w65$HYW',
+        database: 'freedb_usersProjects',
+        user: 'freedb_francesca',
+        password: 'f7jTJAFE?5VTWn%',
     })
 
     .then(conn => {

@@ -15,10 +15,10 @@ let connection;  // Aquí almacenaremos la conexión a la base de datos
 
 mysql
     .createConnection({
-        host: 'sql.freedb.tech',
-        database: 'freedb_usersProjects',
-        user: 'freedb_francesca',
-        password: 'f7jTJAFE?5VTWn%',
+        host: '127.0.0.1',
+        database: 'freedb_ProyectoCanelo',
+        user: 'root',
+        password: 'Bartolo_12',
     })
 
     .then(conn => {
@@ -37,7 +37,7 @@ mysql
     })
 
 
-// escuchar el servidor !!!
+// escuchar el servidor
 const serverPort = process.env.PORT || 4000;
 app.listen(serverPort, () => {
     console.log(`Example app listening on port ${serverPort}`);

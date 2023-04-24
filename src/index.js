@@ -11,16 +11,42 @@ app.use(cors());
 app.use(express.json({ limit: "150mb" }));
 app.set("view engine", "ejs");
 
+// escuchar el servidor
+const serverPort = process.env.PORT || 4000;
+app.listen(serverPort, () => {
+    console.log(`Example app listening on port ${serverPort}`);
+});
+
+
+async function api() {
+
+    /*fetch('')
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    */
+    const resp = await fetch('');
+    const data = await resp.json();
+    console.log(data);
+}
+
 let connection;  // Aquí almacenaremos la conexión a la base de datos
 
-mysql
+async function getConnection() {
+    const connection = await mysql
     .createConnection({
         host: '127.0.0.1',
         database: 'freedb_ProyectoCanelo',
         user: 'root',
         password: 'Bartolo_12',
     })
+    await connection.connect();
 
+    console.log(
+        `Conexión establecida con la base de datos (identificador=${connection.threadId})`
+    );
+
+    return connection;
+/*
     .then(conn => {
         connection = conn;
         connection
@@ -35,28 +61,21 @@ mysql
     .catch((err) => {
         console.error('Error de configuración: ' + err.stack);
     })
+*/
+}
 
-
-// escuchar el servidor
-const serverPort = process.env.PORT || 4000;
-app.listen(serverPort, () => {
-    console.log(`Example app listening on port ${serverPort}`);
-});
-
-app.get('/projects/all', (req, res) => {
+app.get('/projects/all', async (req, res) => {
     console.log('Pidiendo a la base de datos información de los users.');
-    const sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.photo FROM projects JOIN autors ON autors.idAutor = projects.fkAutors")
-    connection
-        .query(sql)
-        .then(([results, fields]) => {
-            res.json(results);
-        })
-        .catch((err) => {
-            throw err;
-        });
+    let sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.photo FROM projects JOIN autors ON autors.idAutor = projects.fkAutors")
+
+    const connection = await getConnection();
+    const [results, fields] = await connection.query(sql);
+    res.json(results);
+    connection.end
 });
 
-app.post('/projects/add', (req, res) => {
+
+app.post('/projects/add', async (req, res) => {
     const data = req.body;
     console.log("Esto es", data);
     if (data.name === '') {
@@ -116,45 +135,34 @@ app.post('/projects/add', (req, res) => {
         let sqlAutor = "INSERT INTO autors (autor, job, photo) VALUES (?, ?, ?)";
         let valuesAutor = [data.autor, data.job, data.photo];
 
-    connection
-    .query(sqlAutor, valuesAutor)
+        const connection = await getConnection();
+        const [results, fields] = await connection.query(sqlAutor, valuesAutor);
+        console.log(results);
 
-    .then(([results, fields]) => {
         let sqlProject = "INSERT INTO projects (name, descripcion, slogan, repo, demo, technologies, image, fkAutors) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         let valuesProject = [data.name, data.desc, data.slogan, data.repo, data.demo, data.technologies, data.image, results.insertId];
-        console.log(results)
-        connection
-        .query(sqlProject, valuesProject)
-        .then(([results, fields]) => {
-            console.log(results)
+
+        const [resultInsert] = await connection.query(sqlProject, valuesProject);
             let response = {
                 "success": true,
-                "cardURL": `http://localhost:4000/projects/${results.insertId}`
-            }
-            res.json(response);
-        })
-       
-        }).catch((err) => {
-        throw err;
-    });
+            "cardURL": `http://localhost:4000/projects/${resultInsert.insertId}`
+        };
+        res.json(response);
+        connection.end();
     }
 });
 
+
 // Endpoint details
 
-app.get("/projects/:projectID", (req, res) => { 
+app.get("/projects/:projectID", async (req, res) => { 
     const projectId = req.params.projectID;
     const sql = "SELECT * FROM projects, autors WHERE projects.fkAutors=autors.idAutor AND idProjects=?"
     
-    connection
-    .query(sql, [projectId])
-    .then(([results, fields]) => {
-        console.log(results);
-        res.render("project_detail", results[0]);
-    })
-   .catch((err) => {
-   throw err;
-   });
+    const connection = await getConnection();
+    const [results, fields] = await connection.query(sql, [projectId])
+    res.render("project_detail", results[0]);
+    connection.end();
    });
 
    

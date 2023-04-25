@@ -18,7 +18,7 @@ const Landing = () => {
         console.log(data);
       })
   }, []);
-  const render = "https://proyecto-canelo.onrender.com"
+  const render = "https://canelo-projects.onrender.com"
   //const render = "//localhost:4000"
 
   const renderCards = () => {

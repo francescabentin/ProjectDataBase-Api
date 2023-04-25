@@ -164,9 +164,36 @@ app.get("/projects/:projectID", async (req, res) => {
     res.render("project_detail", results[0]);
     connection.end();
    });
+/*
+DELETE moduleserver.delete('/api/projects/delete_all', async (req, res) => {
+    const sql = 'DELETE FROM project';
+    const connection = await getConnection();
+    const [results] = await connection.query(sql);
 
-   
-   //Servidor de estáticos ( Todo para ti LAU! )
+    console.log(results);
+    const sqlAutor = 'DELETE FROM autor';
+    const [resultsDelete] = await connection.query(sqlAutor);
+
+    res.json(resultsDelete);
+    connection.end();
+});
+
+server.delete('/api/projects/delete_one/:idCard', async (req, res) => {
+    let idCard = req.params.idCard;
+    const sql = 'DELETE FROM project WHERE fkAutor = ?';
+    const connection = await getConnection();
+    const [results] = await connection.query(sql, [idCard]);
+
+    console.log(results);
+    const sqlAutor = 'DELETE FROM autor WHERE idAutor= ?';
+    const [resultsDetele] = await connection.query(sqlAutor, [idCard]);
+
+    res.json(resultsDetele);
+    connection.end();
+});
+   */
+
+//Servidor de estáticos ( Todo para ti LAU! )
 
 app.use(express.static('./src/public-react'));
 app.use(express.static('./src/public-css'));
@@ -176,6 +203,5 @@ app.get('*', (req, res) => {
     res.send('Error 404');
 
     //const absolutePathToError404 = path.join(__dirname, '..web/public/index.html');
-
     //res.status(404).sendFile(absolutePathToError404);
 })

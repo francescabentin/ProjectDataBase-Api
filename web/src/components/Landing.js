@@ -18,8 +18,8 @@ const Landing = () => {
         console.log(data);
       })
   }, []);
-  //const render = "https://proyecto-canelo.onrender.com"
-  const render = "//localhost:4000"  
+  const render = "https://proyecto-canelo.onrender.com"
+  //const render = "//localhost:4000"
 
   const renderCards = () => {
     return allCards.map((data) => {

@@ -1,5 +1,6 @@
 const render = "https://canelo-projects.onrender.com"
-//const render = "//localhost:4000"  
+//const render = "//localhost:4000"
+
 
 const dataApiBD = (data) => {
     return (fetch(`${render}/projects/all`)

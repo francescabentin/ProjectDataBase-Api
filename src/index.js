@@ -17,34 +17,32 @@ app.listen(serverPort, () => {
     console.log(`Example app listening on port ${serverPort}`);
 });
 
-
+/*
 async function api() {
-
-    /*fetch('')
-    .then(resp => resp.json())
-    .then(data => console.log(data))
-    */
+    //fetch('')
+    //.then(resp => resp.json())
+    //.then(data => console.log(data))
+    
     const resp = await fetch('');
     const data = await resp.json();
     console.log(data);
 }
-
 let connection;  // Aquí almacenaremos la conexión a la base de datos
+*/
 
 async function getConnection() {
     const connection = await mysql
     .createConnection({
-        host: '127.0.0.1',
-        database: 'freedb_ProyectoCanelo',
-        user: 'root',
-        password: 'Bartolo_12',
+        host: 'sql.freedb.tech',
+        database: 'freedb_caneloDataBase',
+        user: 'freedb_francescaBentin',
+        password: 'P*zn2K&tQ%Zw&xQ',
     })
     await connection.connect();
 
     console.log(
         `Conexión establecida con la base de datos (identificador=${connection.threadId})`
     );
-
     return connection;
 /*
     .then(conn => {

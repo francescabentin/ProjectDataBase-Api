@@ -59,7 +59,7 @@ async function getConnection() {
 
 app.get('/projects/all', async (req, res) => {
     console.log('Pidiendo a la base de datos información de los users.');
-    let sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.photo FROM projects JOIN autors ON autors.idAutor = projects.fkauthors")
+    let sql = ("SELECT projects.idprojects AS \"idProjects\",projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.photo FROM projects LEFT JOIN autors ON autors.idAutor = projects.fkauthors")
 
     const connection = await getConnection();
     const { rows } = await connection.query(sql);
@@ -148,7 +148,7 @@ app.post('/projects/add', async (req, res) => {
 
 app.get("/projects/:projectID", async (req, res) => { 
     const projectId = req.params.projectID;
-    const sql = "SELECT * FROM projects, autors WHERE projects.fkauthors=autors.idAutor AND idProjects=$1"
+    const sql = "SELECT projects.*, autors.* FROM projects LEFT JOIN autors ON projects.fkauthors=autors.idAutor WHERE idProjects=$1"
     
     const connection = await getConnection();
     const { rows } = await connection.query(sql, [projectId])

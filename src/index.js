@@ -59,7 +59,7 @@ async function getConnection() {
 
 app.get('/projects/all', async (req, res) => {
     console.log('Pidiendo a la base de datos información de los users.');
-    let sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.photo FROM projects JOIN autors ON autors.idAutor = projects.fkAutors")
+    let sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.photo FROM projects JOIN autors ON autors.idAutor = projects.fkauthors")
 
     const connection = await getConnection();
     const { rows } = await connection.query(sql);
@@ -131,7 +131,7 @@ app.post('/projects/add', async (req, res) => {
         const results = await connection.query(sqlAutor, valuesAutor);
         console.log(results.rows[0]);
 
-        let sqlProject = "INSERT INTO projects (name, descripcion, slogan, repo, demo, technologies, image, fkAutors) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING idprojects"
+        let sqlProject = "INSERT INTO projects (name, descripcion, slogan, repo, demo, technologies, image, fkauthors) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING idprojects"
         let valuesProject = [data.name, data.desc, data.slogan, data.repo, data.demo, data.technologies, data.image, results.rows[0].idautor];
 
         const resultInsert = await connection.query(sqlProject, valuesProject);
@@ -148,7 +148,7 @@ app.post('/projects/add', async (req, res) => {
 
 app.get("/projects/:projectID", async (req, res) => { 
     const projectId = req.params.projectID;
-    const sql = "SELECT * FROM projects, autors WHERE projects.fkAutors=autors.idAutor AND idProjects=$1"
+    const sql = "SELECT * FROM projects, autors WHERE projects.fkauthors=autors.idAutor AND idProjects=$1"
     
     const connection = await getConnection();
     const { rows } = await connection.query(sql, [projectId])

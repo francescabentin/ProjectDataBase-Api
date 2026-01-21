@@ -1,5 +1,5 @@
 // importacion de modulos
-const mysql = require('mysql2/promise');
+const { Pool } = require('pg');
 const cors = require('cors');
 const express = require('express');
 
@@ -30,20 +30,13 @@ async function api() {
 let connection;  // Aquí almacenaremos la conexión a la base de datos
 */
 
-async function getConnection() {
-    const connection = await mysql
-    .createConnection({
-        host: 'sql.freedb.tech',
-        database: 'freedb_caneloDataBase',
-        user: 'freedb_francescaBentin',
-        password: 'P*zn2K&tQ%Zw&xQ',
-    })
-    await connection.connect();
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+});
 
-    console.log(
-        `Conexión establecida con la base de datos (identificador=${connection.threadId})`
-    );
-    return connection;
+async function getConnection() {
+    return pool;
 /*
     .then(conn => {
         connection = conn;
@@ -67,9 +60,8 @@ app.get('/projects/all', async (req, res) => {
     let sql = ("SELECT projects.idProjects,projects.name,projects.descripcion,projects.slogan,projects.repo,projects.demo,projects.technologies,autors.autor,autors.job,autors.photo FROM projects JOIN autors ON autors.idAutor = projects.fkAutors")
 
     const connection = await getConnection();
-    const [results, fields] = await connection.query(sql);
-    res.json(results);
-    connection.end
+    const { rows } = await connection.query(sql);
+    res.json(rows);
 });
 
 
@@ -130,23 +122,22 @@ app.post('/projects/add', async (req, res) => {
 
     else {
 
-        let sqlAutor = "INSERT INTO autors (autor, job, photo) VALUES (?, ?, ?)";
+        let sqlAutor = "INSERT INTO autors (autor, job, photo) VALUES ($1, $2, $3) RETURNING idautor";
         let valuesAutor = [data.autor, data.job, data.photo];
 
         const connection = await getConnection();
-        const [results, fields] = await connection.query(sqlAutor, valuesAutor);
-        console.log(results);
+        const results = await connection.query(sqlAutor, valuesAutor);
+        console.log(results.rows[0]);
 
-        let sqlProject = "INSERT INTO projects (name, descripcion, slogan, repo, demo, technologies, image, fkAutors) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-        let valuesProject = [data.name, data.desc, data.slogan, data.repo, data.demo, data.technologies, data.image, results.insertId];
+        let sqlProject = "INSERT INTO projects (name, descripcion, slogan, repo, demo, technologies, image, fkAutors) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING idprojects"
+        let valuesProject = [data.name, data.desc, data.slogan, data.repo, data.demo, data.technologies, data.image, results.rows[0].idautor];
 
-        const [resultInsert] = await connection.query(sqlProject, valuesProject);
+        const resultInsert = await connection.query(sqlProject, valuesProject);
             let response = {
                 "success": true,
-            "cardURL": `http://localhost:4000/projects/${resultInsert.insertId}`
+            "cardURL": `${process.env.BASE_URL || "http://localhost:4000"}/projects/${resultInsert.rows[0].idprojects}`
         };
         res.json(response);
-        connection.end();
     }
 });
 
@@ -155,12 +146,11 @@ app.post('/projects/add', async (req, res) => {
 
 app.get("/projects/:projectID", async (req, res) => { 
     const projectId = req.params.projectID;
-    const sql = "SELECT * FROM projects, autors WHERE projects.fkAutors=autors.idAutor AND idProjects=?"
+    const sql = "SELECT * FROM projects, autors WHERE projects.fkAutors=autors.idAutor AND idProjects=$1"
     
     const connection = await getConnection();
-    const [results, fields] = await connection.query(sql, [projectId])
-    res.render("project_detail", results[0]);
-    connection.end();
+    const { rows } = await connection.query(sql, [projectId])
+    res.render("project_detail", rows[0]);
    });
 /*
 DELETE moduleserver.delete('/api/projects/delete_all', async (req, res) => {

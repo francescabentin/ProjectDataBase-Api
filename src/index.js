@@ -30,8 +30,10 @@ async function api() {
 let connection;  // Aquí almacenaremos la conexión a la base de datos
 */
 
+const rawDatabaseUrl = process.env.DATABASE_URL || "";
+const sanitizedDatabaseUrl = rawDatabaseUrl.replace(/([?&])sslmode=[^&]+&?/i, "$1").replace(/[?&]$/, "");
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: sanitizedDatabaseUrl,
     ssl: { rejectUnauthorized: false },
 });
 
